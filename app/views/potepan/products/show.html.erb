@@ -24,27 +24,8 @@
   </head>
 
   <body>
-
     <div class="main-wrapper">
-      <section class="lightSection clearfix pageHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="page-title">
-                <h2>Single Product</h2>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <ol class="breadcrumb pull-right">
-                <li>
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="active">Single Product</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
+      <%= render 'light_section' %>
 
       <!-- MAIN CONTENT SECTION -->
       <section class="mainContent clearfix">
@@ -71,7 +52,6 @@
                   <h2><%= @product.name %></h2>
                   <h3>$<%= @product.price %></h3>
                   <p><%= @product.description %></p>
-                  <p><%= @product.images %></p>
                   <span class="quick-drop">
                     <select name="guiest_id3" id="guiest_id3" class="select-drop">
                       <option value="0">S</option>
