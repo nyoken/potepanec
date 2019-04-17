@@ -7,7 +7,7 @@ RSpec.feature "Products", type: :feature do
     visit potepan_product_path(product.id)
     within '.media-body' do
       expect(page).to have_content product.name
-      expect(page).to have_content product.price
+      expect(page).to have_content product.display_price
       expect(page).to have_content product.description
     end
   end
