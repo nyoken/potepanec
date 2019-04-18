@@ -8,7 +8,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
     # 正常にレスポンスを返すか
     it "responds successfully" do
       subject
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     # show.html.erbが描画されているか
