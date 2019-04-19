@@ -1,6 +1,6 @@
 <% provide(:title, "#{@product.name} - BIGBAG Store") %>
 <div class="main-wrapper">
-  <%= render 'light_section' %>
+  <%= render 'light_section', product: @product %>
   <!-- MAIN CONTENT SECTION -->
   <section class="mainContent clearfix">
     <div class="container">
@@ -67,23 +67,6 @@
       <%= render 'related_products' %>
     </div>
   </section>
-  <!-- FOOTER -->
-  <!-- COPY RIGHT -->
-  <div id="footer" class="copyRight clearfix">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7 col-xs-12">
-          <p>&copy; 2016-<%= Time.current %> Copyright Potepan Store .</p>
-        </div>
-        <div class="col-sm-5 col-xs-12">
-          <ul class="list-inline">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <!-- LOGIN MODAL -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog">
