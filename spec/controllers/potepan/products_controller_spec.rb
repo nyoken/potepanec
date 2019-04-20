@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe '#show' do
-    let(:product) { create(:product) }
     subject { get :show, params: { id: product.id } }
+
+    let(:product) { create(:product) }
 
     # 正常にレスポンスを返すか
     it "responds successfully" do
