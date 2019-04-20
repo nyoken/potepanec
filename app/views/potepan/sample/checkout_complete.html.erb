@@ -1,164 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<div class="main-wrapper">
 
-    <!-- SITE TITTLE -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order Completed - BIGBAG Store</title>
-
-    <!-- PLUGINS CSS STYLE -->
-    <%= stylesheet_link_tag "application", :media => "all" %>
-
-    <!-- GOOGLE FONT -->
-    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Oxygen:400,300,700', :media => "all" %>
-
-    <!-- CUSTOM CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/colors/default.css" id="option_color">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-  </head>
-
-  <body>
-
-    <div class="main-wrapper">
-
-      <!-- LIGHT SECTION -->
-      <section class="lightSection clearfix pageHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="page-title">
-                <h2>thanks message</h2>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <ol class="breadcrumb pull-right">
-                <li>
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="active">thanks message</li>
-              </ol>
-            </div>
+  <!-- LIGHT SECTION -->
+  <section class="lightSection clearfix pageHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="page-title">
+            <h2>thanks message</h2>
           </div>
         </div>
-      </section>
+        <div class="col-xs-6">
+          <ol class="breadcrumb pull-right">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li class="active">thanks message</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- MAIN CONTENT SECTION -->
-      <section class="mainContent clearfix setp5">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="thanksContent">
-                <h2>Thank You !! <small>ご注文ありがとうございます。</small></h2>
-                <h3>Shipping Details</h3>
-                <div class="thanksInner">
-                  <div class="row">
-                    <div class="col-sm-6 col-xs-12 tableBlcok">
-                      <address>
-                        <span>Shipping address:</span> <a href="mailto:potepan@potepancamp.com">potepan@potepancamp.com</a> <br>
-                        <span>Email:</span> <a href="mailto:potepan@potepancamp.com">potepan@potepancamp.com</a> <br>
-                        <span>Phone:</span> +884 5452 6432
-                      </address>
-                    </div>
-                    <div class="col-sm-6 col-xs-12">
-                      <div class="well">
-                        <h2><small>Order ID</small>9547</h2>
-                      </div>
-                    </div>
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix setp5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="thanksContent">
+            <h2>Thank You !! <small>ご注文ありがとうございます。</small></h2>
+            <h3>Shipping Details</h3>
+            <div class="thanksInner">
+              <div class="row">
+                <div class="col-sm-6 col-xs-12 tableBlcok">
+                  <address>
+                    <span>Shipping address:</span> <a href="mailto:potepan@potepancamp.com">potepan@potepancamp.com</a> <br>
+                    <span>Email:</span> <a href="mailto:potepan@potepancamp.com">potepan@potepancamp.com</a> <br>
+                    <span>Phone:</span> +884 5452 6432
+                  </address>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="well">
+                    <h2><small>Order ID</small>9547</h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- FOOTER -->
-      <!-- COPY RIGHT -->
-      <div id="footer" class="copyRight clearfix">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-7 col-xs-12">
-              <p>&copy; 2016-<%= Time.now.year %> Copyright Potepan Store .</p>
-            </div>
-            <div class="col-sm-5 col-xs-12">
-              <ul class="list-inline">
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-
-    <!-- LOGIN MODAL -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title">log in</h3>
+  </section>
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">log in</h3>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" role="form">
+          <div class="form-group">
+            <label for="login-email">Enter Email</label>
+            <input type="email" class="form-control" id="login-email">
           </div>
-          <div class="modal-body">
-            <form action="" method="POST" role="form">
-              <div class="form-group">
-                <label for="login-email">Enter Email</label>
-                <input type="email" class="form-control" id="login-email">
-              </div>
-              <div class="form-group">
-                <label for="login-password">Password</label>
-                <input type="password" class="form-control" id="login-password">
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember Me
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">log in</button>
-              <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-            </form>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" class="form-control" id="login-password">
           </div>
-        </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">log in</button>
+          <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
+        </form>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- SIGN UP MODAL -->
-    <div class="modal fade" id="signup" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title">Create an account</h3>
+<!-- SIGN UP MODAL -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Create an account</h3>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" role="form">
+          <div class="form-group">
+            <label for="signup-email">Enter Email</label>
+            <input type="email" class="form-control" id="signup-email">
           </div>
-          <div class="modal-body">
-            <form action="" method="POST" role="form">
-              <div class="form-group">
-                <label for="signup-email">Enter Email</label>
-                <input type="email" class="form-control" id="signup-email">
-              </div>
-              <div class="form-group">
-                <label for="signup-password">Password</label>
-                <input type="password" class="form-control" id="signup-password">
-              </div>
-              <div class="form-group">
-                <label for="signup-password-confirmation">Confirm Password</label>
-                <input type="password" class="form-control" id="signup-password-confirmation">
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Sign up</button>
-            </form>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" class="form-control" id="signup-password">
           </div>
-        </div>
+          <div class="form-group">
+            <label for="signup-password-confirmation">Confirm Password</label>
+            <input type="password" class="form-control" id="signup-password-confirmation">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+        </form>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
