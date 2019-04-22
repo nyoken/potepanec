@@ -1,0 +1,128 @@
+<% provide(:title, "#{@product.name} - BIGBAG Store") %>
+<div class="main-wrapper">
+  <%= render 'light_section', product: @product %>
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix">
+    <div class="container">
+      <div class="row singleProduct">
+        <div class="col-xs-12">
+          <div class="media">
+            <div class="media-left productSlider">
+              <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <% @product.images.each_with_index do |image, i| %>
+                    <div class="item <%= 'active' if i.zero? %>" data-thumb="<%= i %>">
+                      <%= image_tag(image.attachment(:large)) %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div id="thumbcarousel" class="carousel slide" data-interval="false">
+                  <div class="carousel-inner">
+                    <% @product.images.each_with_index do |image, i| %>
+                      <div data-target="#carousel" data-slide-to="<%= i %>" class="thumb">
+                        <%= image_tag(image.attachment(:small)) %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="media-body">
+              <ul class="list-inline">
+                <li><a href="product_grid_left_sidebar.html"><i class="fa fa-reply" aria-hidden="true"></i>一覧ページへ戻る</a></li>
+              </ul>
+              <h2><%= @product.name %></h2>
+              <h3><%= @product.display_price %></h3>
+              <p><%= @product.description %></p>
+              <span class="quick-drop">
+                <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                  <option value="0">S</option>
+                  <option value="1">M</option>
+                  <option value="2">L</option>
+                  <option value="3">XL</option>
+                </select>
+              </span>
+              <span class="quick-drop resizeWidth">
+                <select name="guiest_id4" id="guiest_id4" class="select-drop">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </span>
+              <div class="btn-area">
+                <a href="cart_page.html" class="btn btn-primary btn-block">カートへ入れる<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render 'related_products' %>
+    </div>
+  </section>
+</div>
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">log in</h3>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" role="form">
+          <div class="form-group">
+            <label for="login-email">Enter Email</label>
+            <input type="email" class="form-control" id="login-email">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" class="form-control" id="login-password">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">log in</button>
+          <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- SIGN UP MODAL -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Create an account</h3>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" role="form">
+          <div class="form-group">
+            <label for="signup-email">Enter Email</label>
+            <input type="email" class="form-control" id="signup-email">
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" class="form-control" id="signup-password">
+          </div>
+          <div class="form-group">
+            <label for="signup-password-confirmation">Confirm Password</label>
+            <input type="password" class="form-control" id="signup-password-confirmation">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
