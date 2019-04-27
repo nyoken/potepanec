@@ -1,0 +1,34 @@
+<div class="col-md-9 col-sm-8 col-xs-12">
+  <div class="row filterArea">
+    <div class="col-xs-6">
+      <select name="guiest_id1" id="guiest_id1" class="select-drop">
+        <option value="0">並び替え</option>
+        <option value="1">人気順</option>
+        <option value="2">安い順</option>
+        <option value="3">新着順</option>
+        <option value="3">高い順</option>
+      </select>
+    </div>
+    <div class="col-xs-6">
+      <div class="btn-group pull-right" role="group">
+        <button type="button" class="btn btn-default active" onclick="window.location.href='product_grid_left_sidebar.html'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
+        <button type="button" class="btn btn-default" onclick="window.location.href='product_list_left_sidebar.html'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @products.each_with_index do |product| %>
+      <div class="col-sm-4 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag(product.display_image.attachment(:small)) %>
+          </div>
+          <div class="productCaption clearfix">
+            <h5><%= link_to product.name, potepan_product_path(product.id), style: "color: #252525" %></h5>
+            <h3><%= product.display_price %></h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

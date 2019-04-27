@@ -36,7 +36,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
 
     # 誤った@productsが渡されていないか
     it "doesn't have incorrect @products" do
-      expect(assigns(:products)).to_not match_array(product2)
+      expect(assigns(:products)).not_to match_array(product2)
     end
   end
 end

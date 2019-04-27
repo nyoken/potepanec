@@ -21,7 +21,6 @@ RSpec.feature "Categories", type: :feature do
 
   # カテゴリーのshowページから、商品のshowページにアクセスできることを確認
   scenario "User accesses a product show page from a categories page" do
-    user = FactoryBot.create(:user)
     visit potepan_category_path(taxon.id)
     click_link product.name
 
