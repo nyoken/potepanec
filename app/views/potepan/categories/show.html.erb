@@ -1,15 +1,16 @@
 <% provide(:title, "#{@taxon.name} - BIGBAG Store") %>
 <div class="main-wrapper">
-  <%= render 'light_section', taxon: @taxon %>
+  <%= render "light_section", taxon: @taxon %>
   <!-- MAIN CONTENT SECTION -->
   <section class="mainContent clearfix productsContent">
     <div class="container">
       <div class="row">
-        <%= render 'sideBar', taxonomies: @taxonomies %>
-        <%= render 'mainPanel', products: @products %>
+        <%= render "sideBar", taxonomies: @taxonomies %>
+        <%= render "mainPanel", products: @products %>
       </div>
     </div>
   </section>
+</div>
 <!-- LOGIN MODAL -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog">
   <div class="modal-dialog">
