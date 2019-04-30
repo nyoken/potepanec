@@ -24,7 +24,7 @@
             <%= image_tag(product.display_image.attachment(:small)) %>
           </div>
           <div class="productCaption clearfix">
-            <h5><%= link_to product.name, potepan_product_path(product.id), style: "color: #252525" %></h5>
+            <h5><%= link_to product.name, potepan_product_path(product.id) %></h5>
             <h3><%= product.display_price %></h3>
           </div>
         </div>

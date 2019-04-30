@@ -4,13 +4,13 @@
     <div class="panel-body">
       <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
         <ul class="nav navbar-nav side-nav">
-          <% taxonomies.each_with_index do |taxonomy, i| %>
+          <% taxonomies.each do |taxonomy| %>
             <li>
-              <%= link_to "javascript:;", :data => {:toggle=>"collapse", :target=>"#category-#{i}"} do %>
+              <%= link_to "javascript:;", :data => {:toggle=>"collapse", :target=>"#category-#{taxonomy.id}"} do %>
                 <%= taxonomy.name %><i class="fa fa-plus"></i>
               <% end %>
-              <ul id="category-<%= i %>" class="collapse collapseItem">
-                <% taxonomy.root.children.each_with_index do |t| %>
+              <ul id="category-<%= taxonomy.id %>" class="collapse collapseItem">
+                <% taxonomy.root.children.each do |t| %>
                   <li>
                     <%= link_to potepan_category_path(t.id) do %>
                       <i class="fa fa-caret-right" aria-hidden="true"></i><%= "#{t.name}" %><span><%= "(#{t.all_products.count})" %></span>
