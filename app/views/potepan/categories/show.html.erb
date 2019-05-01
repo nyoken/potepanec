@@ -5,11 +5,11 @@
   <section class="mainContent clearfix productsContent">
     <div class="container">
       <div class="row">
-        <%= render "sideBar", taxonomies: @taxonomies %>
-        <%= render "mainPanel", products: @products %>
+        <%= render "side_bar", taxonomies: @taxonomies %>
+        <%= render "main_panel", products: @taxon.all_products %>
       </div>
     </div>
   </section>
 </div>
-<%= render "potepan/shared/loginModal" %>
-<%= render "potepan/shared/signupModal" %>
+<%= render "potepan/shared/login_modal" %>
+<%= render "potepan/shared/signup_modal" %>
