@@ -17,11 +17,11 @@
     </div>
   </div>
   <div class="row">
-    <% products.each do |product| %>
+    <% products.includes(master: :default_price).each do |product| %>
       <div class="col-sm-4 col-xs-12">
         <div class="productBox">
           <div class="productImage clearfix">
-            <%= image_tag(product.display_image.attachment(:small)) %>
+            <%= image_tag(product.display_image.attachment(:large)) %>
           </div>
           <div class="productCaption clearfix">
             <h5><%= link_to product.name, potepan_product_path(product.id) %></h5>
