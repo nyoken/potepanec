@@ -13,17 +13,17 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     end
 
     # show.html.erbが描画されているか
-    it "render show view" do
+    it "renders show view" do
       expect(response).to render_template :show
     end
 
     # 正しく@taxonが渡されているか
-    it "have correct @taxon" do
+    it "has correct @taxon" do
       expect(assigns(:taxon)).to eq(taxon)
     end
 
     # 正しく@taxonomiesが渡されているか
-    it "have correct @taxonomies" do
+    it "has correct @taxonomies" do
       expect(assigns(:taxonomies)).to match_array(taxonomy)
     end
   end

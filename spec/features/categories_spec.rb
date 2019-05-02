@@ -11,6 +11,7 @@ RSpec.feature "Categories", type: :feature do
     within '.side-nav' do
       expect(page).to have_content taxonomy.name
       expect(page).to have_content taxon.name
+      expect(page).to have_content product.taxons.count
     end
 
     within '.productCaption' do
