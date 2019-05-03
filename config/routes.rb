@@ -27,5 +27,4 @@ Rails.application.routes.draw do
     resources :products,            only: [:show]
     resources :categories,          only: [:show]
   end
-  get '*path', controller: 'application', action: 'render_404'
 end
