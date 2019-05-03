@@ -10,7 +10,7 @@
                 <%= taxonomy.name %><i class="fa fa-plus"></i>
               <% end %>
               <ul id="category-<%= taxonomy.id %>" class="collapse collapseItem">
-                <% taxonomy.root.children.each do |t| %>
+                <% taxonomy.root.leaves.each do |t| %>
                   <li>
                     <%= link_to potepan_category_path(t.id) do %>
                       <i class="fa fa-caret-right" aria-hidden="true"></i><%= "#{t.name}" %><span><%= "(#{t.all_products.count})" %></span>
