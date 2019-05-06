@@ -16,30 +16,18 @@ RSpec.feature "Categories", type: :feature do
       expect(page).to have_content "(#{taxon.all_products.count})"
     end
 
-    within '.productCaption' do
-      expect(page).to have_link(product1.name, href: potepan_product_path(product1.id))
+    within '.productBox' do
+      expect(page).to have_link nil, href: potepan_product_path(product1.id)
+      expect(page).to have_content product1.name
       expect(page).to have_content product1.display_price
-      expect(page).not_to have_link(product2.name, href: potepan_product_path(product2.id))
+      expect(page).not_to have_link nil, href: potepan_product_path(product2.id)
+      expect(page).not_to have_content product2.name
     end
-  end
-
-  # カテゴリーshowページの商品画像から、商品showページにアクセスできることを確認
-  scenario "User accesses a product show page from a product image in categories page" do
-    click_link "#{product1.name}-img"
-
-    expect(page).to have_current_path potepan_product_path(product1.id)
   end
 
   # カテゴリーshowページの商品名から、商品showページにアクセスできることを確認
   scenario "User accesses a product show page from a product name in categories page" do
     click_link product1.name
-
-    expect(page).to have_current_path potepan_product_path(product1.id)
-  end
-
-  # カテゴリーshowページの商品値段から、商品showページにアクセスできることを確認
-  scenario "User accesses a product show page from a product price in categories page" do
-    click_link product1.display_price
 
     expect(page).to have_current_path potepan_product_path(product1.id)
   end

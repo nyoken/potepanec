@@ -17,16 +17,18 @@
     </div>
   </div>
   <div class="row">
-    <% products.includes(master: [:default_price, :images]).each do |product| %>
+    <% products.each do |product| %>
       <div class="col-sm-4 col-xs-12">
         <div class="productBox">
-          <div class="productImage clearfix">
-            <%= link_to image_tag(product.display_image.attachment(:large), alt: "#{product.name}-img"), potepan_product_path(product.id) %>
-          </div>
-          <div class="productCaption clearfix">
-            <h5><%= link_to product.name, potepan_product_path(product.id) %></h5>
-            <h3><%= link_to product.display_price, potepan_product_path(product.id) %></h3>
-          </div>
+          <%= link_to potepan_product_path(product.id) do %>
+            <div class="productImage clearfix">
+              <%= image_tag(product.display_image.attachment(:large)) %>
+            </div>
+            <div class="productCaption clearfix">
+              <h5><%= product.name %></h5>
+              <h3><%= product.display_price %></h3>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
