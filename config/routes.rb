@@ -25,6 +25,6 @@ Rails.application.routes.draw do
     get :tokushoho,                 to: 'sample#tokushoho'
     get :privacy_policy,            to: 'sample#privacy_policy'
     resources :products,            only: [:show]
+    resources :categories,          only: [:show]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
