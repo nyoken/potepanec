@@ -16,7 +16,7 @@ RSpec.feature "Categories", type: :feature do
       expect(page).to have_content "(#{taxon.all_products.count})"
     end
 
-    within '.productBox' do
+    within ".productBox" do
       expect(page).to have_link product1.name, href: potepan_product_path(product1.id)
       expect(page).to have_content product1.display_price
       expect(page).not_to have_link product2.name, href: potepan_product_path(product2.id)

@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe '#show' do
-    let(:product) { create(:product) }
+    let!(:taxon) { create(:taxon) }
+    let!(:product) { create(:product, taxons: [taxon]) }
+    let!(:related_products) { create_list(:product, 5, taxons: [taxon]) }
 
     before { get :show, params: { id: product.id } }
 
@@ -18,7 +20,12 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     # 正しく@productが渡されているか
     it "have correct @product" do
-      expect(assigns(:product)).to eq(product)
+      expect(assigns(:product)).to eq product
+    end
+
+    # 正しく@productが渡されているか
+    it "have correct @related_products" do
+      expect(assigns(:related_products)).to include related_products[0]
     end
   end
 end
