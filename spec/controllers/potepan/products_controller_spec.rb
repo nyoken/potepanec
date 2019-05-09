@@ -25,9 +25,8 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     # 正しく@related_productsが渡されているか
     it "have correct @related_products" do
-      expect(assigns(:related_products)).to include related_products[0]
       # 4つ以上表示されていないか（limit(RELATED_PRODUCTS_LIMITが適用されているか）
-      expect(assigns(:related_products)).not_to include related_products[4]
+      expect(assigns(:related_products)).to match_array related_products[0..3]
     end
   end
 end
