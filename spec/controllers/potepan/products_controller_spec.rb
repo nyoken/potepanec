@@ -23,9 +23,11 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       expect(assigns(:product)).to eq product
     end
 
-    # 正しく@productが渡されているか
+    # 正しく@related_productsが渡されているか
     it "have correct @related_products" do
       expect(assigns(:related_products)).to include related_products[0]
+      # 4つ以上表示されていないか（limit(RELATED_PRODUCTS_LIMITが適用されているか）
+      expect(assigns(:related_products)).not_to include related_products[4]
     end
   end
 end

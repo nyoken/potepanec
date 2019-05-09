@@ -16,8 +16,13 @@ RSpec.feature "Products", type: :feature do
     end
 
     within ".productsContent" do
+      # @productと同じtaxonを持つ商品名とリンクが表示されている
       expect(page).to have_link related_product.name, href: potepan_product_path(related_product.id)
+      # 関連商品の値段が表示されている
       expect(page).to have_content related_product.display_price
+      # 関連商品に@productと同様の商品名が表示されていない
+      expect(page).not_to have_content product.name
+      # @productと異なるtaxonを持つ商品名とリンクが表示されていない
       expect(page).not_to have_link not_related_product.name, href: potepan_product_path(not_related_product.id)
     end
   end
