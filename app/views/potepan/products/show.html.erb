@@ -38,7 +38,7 @@
             <div class="media-body">
               <ul class="list-inline">
                 <li>
-                  <%= link_to potepan_category_path(@product.taxons.ids.first) do %>
+                  <%= link_to potepan_category_path(@product.taxons.first.id) do %>
                     一覧ページへ戻る<i class="fa fa-reply" aria-hidden="true"></i>
                   <% end %>
                 </li>
@@ -68,7 +68,7 @@
           </div>
         </div>
       </div>
-      <%= render 'related_products' %>
+      <%= render 'related_products', related_products: @related_products %>
     </div>
   </section>
 </div>
