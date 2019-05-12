@@ -32,8 +32,8 @@ RSpec.feature "Categories", type: :feature do
 
   # カテゴリーのshowページから、homeページにアクセスできることを確認
   scenario "User accesses a home page from a categories page" do
-    click_link "Home", href: potepan_index_path
+    click_link "Home", href: potepan_path
 
-    expect(page).to have_current_path potepan_index_path
+    expect(page).to have_current_path potepan_path
   end
 end

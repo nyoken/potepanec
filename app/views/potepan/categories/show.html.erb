@@ -1,6 +1,6 @@
 <% provide(:title, @taxon.name) %>
 <div class="main-wrapper">
-  <%= render "light_section", taxon: @taxon %>
+  <%= render "potepan/shared/light_section", element: @taxon %>
   <!-- MAIN CONTENT SECTION -->
   <section class="mainContent clearfix productsContent">
     <div class="container">
@@ -10,6 +10,7 @@
       </div>
     </div>
   </section>
+  <%= render "potepan/shared/partners" %>
 </div>
 <%= render "potepan/shared/login_modal" %>
 <%= render "potepan/shared/signup_modal" %>
