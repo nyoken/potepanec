@@ -5,6 +5,7 @@ RSpec.feature "Categories", type: :feature do
   let!(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
   let!(:product1) { create(:product, taxons: [taxon]) }
   let!(:product2) { create(:product) }
+  let!(:option_type) { create(:option_type, presentation: "Color") }
 
   before { visit potepan_category_path(taxon.id) }
 

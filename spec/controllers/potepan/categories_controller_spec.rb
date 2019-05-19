@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Potepan::CategoriesController, type: :controller do
   describe "#show" do
-    let(:taxonomy) { create(:taxonomy) }
-    let(:taxon) { create(:taxon, taxonomy: taxonomy) }
+    let!(:taxonomy) { create(:taxonomy) }
+    let!(:taxon) { create(:taxon, taxonomy: taxonomy) }
+    let!(:color) { create(:option_type, presentation: "Color") }
 
     before { get :show, params: { id: taxon.id } }
 
@@ -25,6 +26,11 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     # 正しく@taxonomiesが渡されているか
     it "has correct @taxonomies" do
       expect(assigns(:taxonomies)).to match_array(taxonomy)
+    end
+
+    # 正しく@colorsが渡されているか
+    it "has correct @colors" do
+      expect(assigns(:colors)).to eq(color)
     end
   end
 end

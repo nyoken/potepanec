@@ -1,0 +1,10 @@
+<div class="panel panel-default filterNormal">
+  <div class="panel-heading">色から探す</div>
+  <div class="panel-body">
+    <ul class="list-unstyled">
+      <% colors.option_values.each do |color| %>
+        <li><%= link_to "#{color.name}<span>(15)</span>", "#" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

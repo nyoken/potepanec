@@ -10,5 +10,7 @@ class Potepan::CategoriesController < ApplicationController
     # (product.)master.default_price, (product.)master.images取得時の「N+1問題」を解決。
     # (product:master:[:default_price, :images] =n:1:n）
     @products = @taxon.all_products.includes(master: [:default_price, :images])
+
+    @colors = Spree::OptionType.find_by(presentation: "Color")
   end
 end
