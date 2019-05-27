@@ -8,9 +8,9 @@
         <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
           <%= render "filter_by_category", taxonomies: @taxonomies %>
           <%= render "filter_by_color", colors: @colors %>
-          <%= render "filter_by_size" %>
+          <%= render "filter_by_size", sizes: @sizes %>
         </div>
-        <%= render "main_panel", products: @products %>
+        <%= render "main_panel", products: @filtered_products %>
       </div>
     </div>
   </section>

@@ -5,6 +5,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     let!(:taxonomy) { create(:taxonomy) }
     let!(:taxon) { create(:taxon, taxonomy: taxonomy) }
     let!(:color) { create(:option_type, presentation: "Color") }
+    let!(:size) { create(:option_type, presentation: "Size") }
 
     before { get :show, params: { id: taxon.id } }
 
@@ -30,7 +31,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
 
     # 正しく@colorsが渡されているか
     it "has correct @colors" do
-      expect(assigns(:colors)).to eq(color)
+      expect(assigns(:colors)).to eq(color.option_values)
     end
   end
 end
