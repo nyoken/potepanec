@@ -2,7 +2,7 @@
   <div class="panel-heading">色から探す</div>
   <div class="panel-body">
     <ul class="list-unstyled">
-      <% colors.each do |color| %>
+      <% option_types.colors.each do |color| %>
         <li>
           <%= link_to potepan_category_path(params[:id], color: color.name) do %>
             <%= color.name %><span><%= "(#{count_number_of_products(color.name)})" %></span>

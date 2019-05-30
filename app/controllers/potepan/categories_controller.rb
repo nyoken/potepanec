@@ -1,8 +1,4 @@
 class Potepan::CategoriesController < ApplicationController
-
-  # 各アクションの前に、set_colors, set_sizesメソッドを実行する
-  before_action :set_colors, :set_sizes
-
   # Viewでcount_number_of_productsメソッドを使えるようにする
   helper_method :count_number_of_products
 
@@ -13,28 +9,27 @@ class Potepan::CategoriesController < ApplicationController
     # SELECT `taxonomies`.* FROM `taxonomies` WHERE `taxonomies`.`root_id` IN (1, 2, 3, ...)
     @taxonomies = Spree::Taxonomy.includes(:root)
 
-    # includesで「N+1問題」を解決
-    # Productのmaster_variant（Variantモデル）と、その配下のDefaultPriceモデル, Imageモデルを取得
-    # in_taxonメソッド→引数のTaxonを持つproductsの配列を返す
-    @filtered_products = Spree::Product.includes(master: [:default_price, :images]).in_taxon(@taxon)
-                            .filter_by_option_values(filter_params)
+    @products =
+      if params[:color].present?
+        Spree::Product.select_by_category(@taxon).filter_by_option_values(filter_params[:color])
+      elsif params[:size].present?
+        Spree::Product.select_by_category(@taxon).filter_by_option_values(filter_params[:size])
+      elsif params[:color].present? && params[:size].present?
+        colors = Spree::Product.select_by_category(@taxon).filter_by_option_values(filter_params[:color]).ids
+        sizes = Spree::Product.select_by_category(@taxon).filter_by_option_values(filter_params[:size]).ids
+        Spree::Product.where(id: colors & sizes)
+      else
+        Spree::Product.select_by_category(@taxon)
+      end
+
+    @option_types = Spree::OptionType.includes(:option_values)
   end
 
   private
 
     # URLクエリをストロングパラメーターで取得
     def filter_params
-      [ params[:color], params[:size] ]
-    end
-
-    # OptionTypeがColorであるOptionValueの配列を取得
-    def set_colors
-      @colors = Spree::OptionType.find_by(presentation: "Color").option_values
-    end
-
-    # OptionTypeがSizeであるOptionValueの配列を取得
-    def set_sizes
-      @sizes = Spree::OptionType.find_by(presentation: "Size").option_values
+      { color: params[:color], size: params[:size] }
     end
 
     # Color, Sizeなどのoption_valueに応じた商品数を取得するメソッド

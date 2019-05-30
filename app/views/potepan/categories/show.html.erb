@@ -6,11 +6,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+          <%= @colors %>
+          <%= @sizes %>
+          <%= @tproducts %>
           <%= render "filter_by_category", taxonomies: @taxonomies %>
-          <%= render "filter_by_color", colors: @colors %>
-          <%= render "filter_by_size", sizes: @sizes %>
+          <%= render "filter_by_color", option_types: @option_types %>
+          <%= render "filter_by_size", option_types: @option_types %>
         </div>
-        <%= render "main_panel", products: @filtered_products %>
+        <%= render "main_panel", products: @products %>
       </div>
     </div>
   </section>
