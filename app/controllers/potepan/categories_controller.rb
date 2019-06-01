@@ -3,11 +3,13 @@ class Potepan::CategoriesController < ApplicationController
   helper_method :count_number_of_products
 
   def show
-    @taxon = Spree::Taxon.find(params[:id])
-
     # includesで「N+1問題」を解決
     # SELECT `taxonomies`.* FROM `taxonomies` WHERE `taxonomies`.`root_id` IN (1, 2, 3, ...)
     @taxonomies = Spree::Taxonomy.includes(:root)
+
+    @taxon = Spree::Taxon.find(params[:id])
+
+    @option_types = Spree::OptionType.includes(:option_values)
 
     @products =
       if params[:color].present?
@@ -21,8 +23,6 @@ class Potepan::CategoriesController < ApplicationController
       else
         Spree::Product.select_by_category(@taxon)
       end
-
-    @option_types = Spree::OptionType.includes(:option_values)
   end
 
   private
