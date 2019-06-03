@@ -3,6 +3,6 @@ class Potepan::HomeController < ApplicationController
 
   def index
     # new_products scopeは、app/models/spree/product_decoratorにて定義
-    @new_products = Spree::Product.new_products.limit(NEW_PRODUCTS_LIMIT)
+    @new_products = Spree::Product.from_newest_to_oldest.limit(NEW_PRODUCTS_LIMIT)
   end
 end

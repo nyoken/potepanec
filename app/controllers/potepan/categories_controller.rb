@@ -20,23 +20,25 @@ class Potepan::CategoriesController < ApplicationController
         colors = Spree::Product.select_by_category(@taxon).filter_by_option_values(filter_params[:color]).ids
         sizes = Spree::Product.select_by_category(@taxon).filter_by_option_values(filter_params[:size]).ids
         Spree::Product.where(id: colors & sizes)
+      elsif params[:sort].present?
+        Spree::Product.select_by_category(@taxon).sort_in_order(params[:sort])
       else
-        Spree::Product.select_by_category(@taxon)
+        Spree::Product.select_by_category(@taxon).from_newest_to_oldest
       end
   end
 
   private
 
-    # URLクエリをストロングパラメーターで取得
-    def filter_params
-      { color: params[:color], size: params[:size] }
-    end
+  # URLクエリをストロングパラメーターで取得
+  def filter_params
+    { color: params[:color], size: params[:size] }
+  end
 
-    # Color, Sizeなどのoption_valueに応じた商品数を取得するメソッド
-    def count_number_of_products(option_value)
-      Spree::Product.includes(variants: :option_values)
-        .in_taxon(@taxon)
-        .where(spree_option_values: { name: option_value })
-        .count
-    end
+  # Color, Sizeなどのoption_valueに応じた商品数を取得するメソッド
+  def count_number_of_products(option_value)
+    Spree::Product.includes(variants: :option_values).
+      in_taxon(@taxon).
+      where(spree_option_values: { name: option_value }).
+      count
+  end
 end
