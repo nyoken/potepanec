@@ -1,0 +1,49 @@
+<% provide(:title, "Results by Search #{@search_word}") %>
+<div class="main-wrapper">
+  <section class="lightSection clearfix pageHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="page-title">
+            <h2><%= @search_word %></h2>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <ol class="breadcrumb pull-right">
+            <li>
+              <%= link_to "Home", potepan_path %>
+            </li>
+            <li>
+              <a href="#">shop</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix productsContent">
+    <div class="container">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-sm-3 col-xs-12">
+            <div class="productBox">
+              <%= link_to potepan_product_path(product.id) do %>
+                <div class="productImage clearfix">
+                  <%= image_tag(product.display_image.attachment(:large)) %>
+                </div>
+                <div class="productCaption clearfix">
+                  <h5><%= product.name %></h5>
+                  <h3><%= product.display_price %></h3>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <%= render "potepan/shared/partners" %>
+</div>
+<%= render "potepan/shared/login_modal" %>
+<%= render "potepan/shared/signup_modal" %>

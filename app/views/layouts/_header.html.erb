@@ -13,16 +13,16 @@
         <div class="col-md-6 col-xs-12">
           <ul class="list-inline pull-right">
             <li class="dropdown searchBox">
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
-                <form  id="form01" action="product-grid-left-sidebar.html" method="post">
                 <li>
-                  <span class="input-group">
-                    <input type="text" name="searchWord" class="form-control" placeholder="Search…" aria-describedby="basic-addon2">
-                    <span onclick="FormSubmit();" class="input-group-addon addPointer" id="basic-addon2">検索</span>
+                  <%= form_tag(search_potepan_products_path, id: "form01", method: "get", enforce_utf8: false) do %>
+                    <span class="input-group">
+                    <%= text_field_tag :search, "", class: "form-control", placeholder: "Search…", aria_describedby: "basic-addon2" %>
+                    <button><span class="input-group-addon" id="basic-addon2" onclick="this.form.submit()">検索</span></button>
+                  <% end %>
                   </span>
                 </li>
-                </form>
               </ul>
             </li>
             <li class="dropdown">

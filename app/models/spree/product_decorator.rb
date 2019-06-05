@@ -10,16 +10,16 @@ Spree::Product.class_eval do
     includes(master: [:default_price, :images]).in_taxon(taxon)
   end
 
+  # 引数（URLクエリ）がある場合に、Variantモデル配下のOptionValueモデルを取得して、OptionValueのnameがURLクエリと一致する商品を取得
+  scope :filter_by_option_values, -> (option_values) do
+    joins(variants: :option_values).where(spree_option_values: { name: option_values })
+  end
+
   # 並び替え用スコープ
   scope :from_high_price_to_low_price, -> { includes(master: [:default_price, :images]).reorder("spree_prices.amount desc") }
   scope :from_low_price_to_high_price, -> { includes(master: [:default_price, :images]).reorder("spree_prices.amount") }
   scope :from_newest_to_oldest, -> { includes(master: [:default_price, :images]).reorder(available_on: :desc) }
   scope :from_oldest_to_newest, -> { includes(master: [:default_price, :images]).reorder(available_on: :asc) }
-
-  # 引数（URLクエリ）がある場合に、Variantモデル配下のOptionValueモデルを取得して、OptionValueのnameがURLクエリと一致する商品を取得
-  scope :filter_by_option_values, -> (option_values) do
-    joins(variants: :option_values).where(spree_option_values: { name: option_values })
-  end
 
   # 並び替え用メソッド
   scope :sort_in_order, -> (sort) do
@@ -33,5 +33,11 @@ Spree::Product.class_eval do
     when "HIGH_PRICE"
       from_high_price_to_low_price
     end
+  end
+
+  def self.search(search)
+    includes(master: [:default_price, :images]).
+    where(['name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"]).
+    distinct
   end
 end
