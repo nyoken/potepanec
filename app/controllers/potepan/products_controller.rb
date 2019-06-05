@@ -10,6 +10,6 @@ class Potepan::ProductsController < ApplicationController
 
   def search
     @search_word = params[:search]
-    @products = Spree::Product.search(params[:search])
+    @products = Spree::Product.search(@search_word)
   end
 end
