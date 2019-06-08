@@ -11,8 +11,8 @@ RSpec.feature "Categories", type: :feature do
   end
   let!(:colors) do
     [
-      create(:option_value, name: "Red", option_type: option_types[0]),
-      create(:option_value, name: "Blue", option_type: option_types[0]),
+      create(:option_value, name: "Red", presentation: "Red", option_type: option_types[0]),
+      create(:option_value, name: "Blue", presentation: "Blue", option_type: option_types[0]),
     ]
   end
   let!(:sizes) do
@@ -33,7 +33,8 @@ RSpec.feature "Categories", type: :feature do
     [
       create(:product, taxons: [taxon], variants: [variants[0]], price: 10.00, available_on: Date.current.in_time_zone),
       create(:product, taxons: [taxon], variants: [variants[1]], price: 20.00, available_on: 1.day.ago),
-      create(:product, taxons: [taxon], variants: [variants[2]], price: 40.00, available_on: 1.week.ago),
+      create(:product, taxons: [taxon], variants: [variants[2]], price: 30.00, available_on: 1.week.ago),
+      create(:product, taxons: [taxon], variants: [variants[3]], price: 40.00, available_on: 2.week.ago),
     ]
   end
   let!(:product_not_has_taxon) { create(:product) }
@@ -50,7 +51,7 @@ RSpec.feature "Categories", type: :feature do
       expect(page).to have_content "(#{taxon.all_products.count})"
 
       # 色フィルター
-      expect(page).to have_link colors[0].name, href: "#{potepan_category_path(taxon.id)}?color=#{colors[0].name}"
+      expect(page).to have_link colors[0].presentation, href: "#{potepan_category_path(taxon.id)}?color=#{colors[0].name}"
 
       # サイズフィルター
       expect(page).to have_link sizes[0].presentation, href: "#{potepan_category_path(taxon.id)}?size=#{sizes[0].name}"
@@ -80,7 +81,7 @@ RSpec.feature "Categories", type: :feature do
 
   # 色フィルターをかけられることを確認
   scenario "User accesses categories page filtered by color" do
-    click_link colors[0].name
+    click_link colors[0].presentation
     expect(page).to have_content products[0].name
     expect(page).not_to have_content products[1].name
   end

@@ -29,7 +29,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       expect(assigns(:related_products)).to match_array related_products[0..3]
     end
   end
-  
+
   describe '#search' do
     let!(:products) do
       [

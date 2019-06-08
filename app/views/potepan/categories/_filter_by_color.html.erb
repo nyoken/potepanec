@@ -5,7 +5,7 @@
       <% option_types.colors.each do |color| %>
         <li>
           <%= link_to potepan_category_path(params[:id], color: color.name) do %>
-            <%= color.name %><span><%= "(#{count_number_of_products(color.name)})" %></span>
+            <%= color.presentation %><span><%= "(#{count_number_of_products(color.name)})" %></span>
           <% end %>
         </li>
       <% end %>
