@@ -46,14 +46,14 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     describe "filters_by_color&size" do
       let!(:colors) do
         [
-          create(:option_value, name: "Red", option_type: option_types[0]),
-          create(:option_value, name: "Blue", option_type: option_types[0]),
+          create(:option_value, name: "Red", presentation: "Red", option_type: option_types[0]),
+          create(:option_value, name: "BLue", presentation: "Blue", option_type: option_types[0]),
         ]
       end
       let!(:sizes) do
         [
-          create(:option_value, name: "Small", option_type: option_types[1]),
-          create(:option_value, name: "Medium", option_type: option_types[1]),
+          create(:option_value, name: "Small", presentation: "S", option_type: option_types[1]),
+          create(:option_value, name: "Medium", presentation: "M", option_type: option_types[1]),
         ]
       end
       let!(:variants) do
@@ -62,14 +62,16 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
           create(:variant, option_values: [colors[1]]),
           create(:variant, option_values: [sizes[0]]),
           create(:variant, option_values: [sizes[1]]),
+          create(:variant, option_values: [colors[1], sizes[1]]),
         ]
       end
       let!(:products) do
         [
           create(:product, taxons: [taxon], variants: [variants[0]]),
-          create(:product, taxons: [taxon], variants: [variants[1], variants[3]]),
+          create(:product, taxons: [taxon], variants: [variants[1]]),
           create(:product, taxons: [taxon], variants: [variants[2]]),
           create(:product, taxons: [taxon], variants: [variants[3]]),
+          create(:product, taxons: [taxon], variants: [variants[4]]),
         ]
       end
 
@@ -92,7 +94,8 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       # params[:color]、params[:size]の両方が存在する時、@productsにcolorとsizeフィルターがかかっているか
       it "has @products filtered by color & size when params[:color] & params[:size] exist" do
         get :show, params: { id: taxon.id, color: "Blue", size: "Medium" }
-        expect(assigns(:products)).to include(products[1])
+        expect(assigns(:products)).to include(products[4])
+        expect(assigns(:products)).not_to include(products[1])
         expect(assigns(:products)).not_to include(products[3])
         expect(assigns(:products)).not_to include(product_not_has_taxon)
       end
