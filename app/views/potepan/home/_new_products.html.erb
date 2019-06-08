@@ -1,0 +1,26 @@
+<div class="row featuredProducts">
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h4>新着商品</h4>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="owl-carousel featuredProductsSlider">
+      <% new_products.each do |new_product| %>
+        <div class="slide">
+          <div class="productImage">
+            <%= link_to potepan_product_path(new_product.id) do %>
+              <div class="productImage clearfix">
+                <%= image_tag(new_product.display_image.attachment(:large)) %>
+              </div>
+              <div class="productCaption clearfix">
+                <h5><%= new_product.name %></h5>
+                <h3><%= new_product.display_price %></h3>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

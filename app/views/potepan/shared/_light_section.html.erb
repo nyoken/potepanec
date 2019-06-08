@@ -3,15 +3,18 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="page-title">
-          <h2><%= product.name %></h2>
+          <h2><%= element.name %></h2>
         </div>
       </div>
       <div class="col-xs-6">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href="index.html">Home</a>
+            <%= link_to "Home", potepan_path %>
           </li>
-          <li class="active"><%= product.name %></li>
+          <li>
+            <a href="#">shop</a>
+          </li>
+          <li class="active"><%= element.name %></li>
         </ol>
       </div>
     </div>

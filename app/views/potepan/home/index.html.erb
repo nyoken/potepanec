@@ -1,0 +1,66 @@
+<div class="main-wrapper">
+
+  <!-- BANNER -->
+  <div class="bannercontainer">
+    <div class="fullscreenbanner-container">
+      <div class="fullscreenbanner">
+        <ul>
+          <li>
+            <%= image_tag("home/banner-slider/slider-bg.jpg", :alt => "slidebg1", data:{bgposition: "center center", bgfit: "cover" , bgrepeat: "no-repeat"}) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix">
+    <div class="container">
+      <div class="row featuredCollection">
+        <div class="col-xs-12">
+          <div class="page-header">
+            <h4>人気カテゴリー</h4>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="thumbnail" onclick="location.href='single_product.html';">
+            <div class="imageWrapper">
+              <%= image_tag("home/featured-collection/featured-collection-01.jpg", :alt => "feature-collection-image") %>
+              <div class="masking"><a href="product_grid_left_sidebar.html" class="btn viewBtn">View Shirts</a></div>
+            </div>
+            <div class="caption">
+              <h4>Shirts</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="thumbnail" onclick="location.href='single_product.html';">
+            <div class="imageWrapper">
+              <%= image_tag("home/featured-collection/featured-collection-02.jpg", :alt => "feature-collection-image") %>
+              <div class="masking"><a href="product_grid_left_sidebar.html" class="btn viewBtn">View Bags</a></div>
+            </div>
+            <div class="caption">
+              <h4>Bags</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="thumbnail" onclick="location.href='single_product.html';">
+            <div class="imageWrapper">
+              <%= image_tag("home/featured-collection/featured-collection-03.jpg", :alt => "feature-collection-image") %>
+              <div class="masking"><a href="product_grid_left_sidebar.html" class="btn viewBtn">View Denim</a></div>
+            </div>
+            <div class="caption">
+              <h4>Denim</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render "new_products", new_products: @new_products %>
+    </div>
+  </section>
+  <%= render "potepan/shared/partners" %>
+</div>
+<%= render "potepan/shared/login_modal" %>
+<%= render "potepan/shared/signup_modal" %>
+<%= render "potepan/shared/product_quick_view_modal" %>

@@ -1,15 +1,20 @@
 <% provide(:title, @taxon.name) %>
 <div class="main-wrapper">
-  <%= render "light_section", taxon: @taxon %>
+  <%= render "potepan/shared/light_section", element: @taxon %>
   <!-- MAIN CONTENT SECTION -->
   <section class="mainContent clearfix productsContent">
     <div class="container">
       <div class="row">
-        <%= render "side_bar", taxonomies: @taxonomies %>
+        <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+          <%= render "filter_by_category", taxonomies: @taxonomies %>
+          <%= render "filter_by_color", option_types: @option_types %>
+          <%= render "filter_by_size", option_types: @option_types %>
+        </div>
         <%= render "main_panel", products: @products %>
       </div>
     </div>
   </section>
+  <%= render "potepan/shared/partners" %>
 </div>
 <%= render "potepan/shared/login_modal" %>
 <%= render "potepan/shared/signup_modal" %>
