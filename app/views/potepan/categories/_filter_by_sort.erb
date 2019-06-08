@@ -1,0 +1,12 @@
+<div class="col-xs-6">
+  <%= form_tag(request.path, method: :get, enforce_utf8: false) do %>
+    <%= select_tag "sort", options_for_select([
+      ["新着順", "NEW_PRODUCTS"],
+      ["安い順", "LOW_PRICE"],
+      ["高い順", "HIGH_PRICE"],
+      ["古い順", "OLD_PRODUCTS"]],
+      selected: params[:sort] || "NEW_PRODUCTSN"),
+      { class: "select-drop", onchange: "this.form.submit()"} %>
+    <%= hidden_field_tag(:opt, params[:opt]) unless params[:opt].nil? %>
+  <% end %>
+</div>

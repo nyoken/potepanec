@@ -10,7 +10,15 @@
           <%= render "filter_by_color", option_types: @option_types %>
           <%= render "filter_by_size", option_types: @option_types %>
         </div>
-        <%= render "main_panel", products: @products %>
+
+
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div class="row filterArea">
+            <%= render "filter_by_sort" %>
+            <%= render "filter_by_grid_or_list" %>
+          </div>
+          <%= render "main_panel", products: @products %>
+        </div>
       </div>
     </div>
   </section>
