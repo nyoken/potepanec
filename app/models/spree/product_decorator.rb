@@ -16,10 +16,10 @@ Spree::Product.class_eval do
   end
 
   # 並び替え用スコープ
-  scope :from_high_price_to_low_price, -> { includes(master: [:default_price, :images]).reorder("spree_prices.amount desc") }
-  scope :from_low_price_to_high_price, -> { includes(master: [:default_price, :images]).reorder("spree_prices.amount") }
-  scope :from_newest_to_oldest, -> { includes(master: [:default_price, :images]).reorder(available_on: :desc) }
-  scope :from_oldest_to_newest, -> { includes(master: [:default_price, :images]).reorder(available_on: :asc) }
+  scope :from_high_price_to_low_price, -> { unscope(:order).descend_by_master_price }
+  scope :from_low_price_to_high_price, -> { unscope(:order).ascend_by_master_price }
+  scope :from_newest_to_oldest, -> { reorder(available_on: :desc) }
+  scope :from_oldest_to_newest, -> { reorder(available_on: :asc) }
 
   # 並び替え用メソッド
   scope :sort_in_order, -> (sort) do
