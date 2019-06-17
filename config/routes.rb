@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   namespace :potepan do
     get '/',                        to: 'home#index'
     get 'index',                    to: 'sample#index'
+    get 'cart',                     to: 'orders#edit'
+    patch 'cart',                   to: 'orders#update'
+    post 'add_cart',                to: 'orders#add_cart'
     get :product_grid_left_sidebar, to: 'sample#product_grid_left_sidebar'
     get :product_list_left_sidebar, to: 'sample#product_list_left_sidebar'
     get :single_product,            to: 'sample#single_product'

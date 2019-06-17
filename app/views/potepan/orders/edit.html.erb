@@ -1,0 +1,54 @@
+<div class="main-wrapper">
+  <%= render "light_section" %>
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix cartListWrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="cartListInner">
+            <%= form_for @order, url: potepan_cart_path do |order_form| %>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>商品名</th>
+                      <th>価格</th>
+                      <th>数</th>
+                      <th>小計</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%# order_form内の商品（line_items）の表示方法がわかりません
+                      単純に「@order.products」をeachで回せば表示はできるのですが、
+                      アップデートボタンで更新することはできないので、誤っていると考えています %>
+                  </tbody>
+                </table>
+              </div>
+              <div class="updateArea">
+               <!--  <div class="input-group">
+                  <input type="text" class="form-control" placeholder="I have a discount coupon" aria-describedby="basic-addon2">
+                  <a href="#" class="btn input-group-addon" id="basic-addon2">apply coupon</a>
+                </div> -->
+                <a href="#" class="btn">アップデート</a>
+              </div>
+              <div class="totalAmountArea">
+                <div class="col-sm-4 col-sm-offset-8 col-xs-12">
+                  <ul class="list-unstyled">
+                    <li>小計 <span>792円</span></li>
+                    <li>消費税 <span>18円</span></li>
+                    <li>総計 <span class="grandTotal">810円</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="checkBtnArea">
+                <a href="checkout_step_1.html" class="btn btn-primary btn-block">購入する<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<%= render "potepan/shared/login_modal" %>
+<%= render "potepan/shared/signup_modal" %>
