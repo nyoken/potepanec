@@ -36,7 +36,7 @@ RSpec.describe Potepan::OrdersController, type: :controller do
             quantity: 2, id: line_item.id,
           },
         },
-        id: line_item.order.id,
+        number: line_item.order.number,
       }
     end
 
