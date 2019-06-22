@@ -1,5 +1,5 @@
 <%= form_for order, url: potepan_cart_path do |order_form| %>
-  <%= hidden_field_tag(:id, order.id) %>
+  <%= hidden_field_tag(:number, order.number) %>
   <div class="table-responsive">
     <table class="table">
       <thead>

@@ -10,7 +10,7 @@ class Potepan::OrdersController < ApplicationController
   end
 
   def update
-    @order = Spree::Order.find(params[:id])
+    @order = Spree::Order.find_by(number: params[:number])
     @order.contents.update_cart(order_params)
     redirect_to potepan_cart_path
   end
