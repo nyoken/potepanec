@@ -1,0 +1,47 @@
+<%= form_for order, url: potepan_cart_path do |order_form| %>
+  <%= hidden_field_tag(:id, order.id) %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>商品名</th>
+          <th>価格</th>
+          <th>数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "line_item", collection: order.line_items.includes(variant: [:product]),
+          locals: { order_form: order_form } %>
+      </tbody>
+    </table>
+  </div>
+  <div class="updateArea">
+    <%= order_form.submit("アップデート", class: "btn") %>
+  </div>
+  <div class="totalAmountArea">
+    <div class="col-sm-4 col-sm-offset-8 col-xs-12">
+      <ul class="list-unstyled">
+        <li>小計
+          <span>
+            <%= order.display_item_total %>
+          </span>
+        </li>
+        <li>消費税
+          <span>
+            <%= order.display_additional_tax_total %>
+          </span>
+        </li>
+        <li>総計
+          <span class="grandTotal">
+            <%= order.display_total %>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="checkBtnArea">
+    <a href="checkout_step_1.html" class="btn btn-primary btn-block">購入する<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+  </div>
+<% end %>
