@@ -3122,10 +3122,11 @@ body.bodyColor.container {
     height: auto;
   }
 }
-.cartListInner .table-responsive .table tbody tr td:nth-child(3) {
+.cartListInner .table-responsive .table tbody tr td:nth-child(3){
   color: #888888;
 }
-.cartListInner .table-responsive .table tbody tr td input {
+
+.cartListInner .table-responsive .table tbody tr td input{
   width: 70px;
   height: 40px;
   text-align: center;
