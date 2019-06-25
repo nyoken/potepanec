@@ -26,6 +26,16 @@ RSpec.describe Potepan::OrdersController, type: :controller do
     end
   end
 
+  describe 'add_cart' do
+    let!(:variant) { create(:variant) }
+
+    it 'creates new line_item object' do
+      expect(Spree::LineItem.count).to eq(0)
+      post :add_cart, params: { line_item: { quantity: 1 }, variant_id: variant.id }
+      expect(Spree::LineItem.count).to eq(1)
+    end
+  end
+
   describe 'update' do
     let!(:order)     { create(:order_with_line_items) }
     let!(:line_item) { order.line_items.first }

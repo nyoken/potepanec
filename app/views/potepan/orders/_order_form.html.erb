@@ -42,6 +42,8 @@
     </div>
   </div>
   <div class="checkBtnArea">
-    <a href="checkout_step_1.html" class="btn btn-primary btn-block">購入する<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+    <%= button_tag(name: 'checkout', class: 'btn btn-primary btn-block') do %>
+    購入する<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    <% end %>
   </div>
 <% end %>

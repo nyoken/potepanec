@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :potepan do
-    get 'line_items/destroy'
-  end
   # This line mounts Solidus's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -34,7 +31,11 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:show]
     get 'cart', to: 'orders#edit'
+    post 'add_cart', to: 'orders#add_cart'
     patch 'cart', to: 'orders#update'
-    resources :line_items, only: [:create, :destroy]
+    resources :line_items, only: [:destroy]
+    get 'checkout', to: 'checkout#edit'
+    get 'checkout/:state', to: 'checkout#edit', as: :checkout_state
+    patch 'checkout/update/:state', to: 'checkout#update'
   end
 end

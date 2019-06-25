@@ -1,4 +1,4 @@
-<%= form_for :order, url: potepan_line_items_path do |f| %>
+<%= form_for :order, url: potepan_add_cart_path do |f| %>
   <% if product.variants.any? %>
     <span class="quick-drop">
       <%= select_tag :variant_id, options_from_collection_for_select(
