@@ -3,6 +3,10 @@ class Potepan::OrdersController < ApplicationController
   include Spree::Core::ControllerHelpers::Auth
   include Spree::Core::ControllerHelpers::Store
 
+  def show
+    @order = Spree::Order.find_by(number: params[:id])
+  end
+
   def edit
     # https://github.com/solidusio/solidus/blob/master/frontend/app/controllers/spree/orders_controller.rb
     @order = current_order || Spree::Order.incomplete.
@@ -42,8 +46,8 @@ class Potepan::OrdersController < ApplicationController
   def update
     @order = Spree::Order.find_by(number: params[:number])
     if @order.contents.update_cart(order_params)
+      # formの送信先のnameがcheckoutの場合、次ステップに進む
       @order.next if params.key?(:checkout) && @order.cart?
-
       if params.key?(:checkout)
         redirect_to potepan_checkout_state_path(@order.checkout_steps.first)
       else

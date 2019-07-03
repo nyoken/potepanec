@@ -1,0 +1,41 @@
+<%= order_form.fields_for :ship_address do |address_fields| %>
+  <div class="col-xs-12">
+    <div class="page-header">
+      <h4>入力フォーム</h4>
+    </div>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :lastname, "姓" %>
+    <%= address_fields.text_field :lastname, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :firstname, "名" %>
+    <%= address_fields.text_field :firstname, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= order_form.label :email, "メールアドレス" %>
+    <%= order_form.email_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :zipcode, "郵便番号" %>
+    <%= address_fields.text_field :zipcode, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :state_id, "都道府県" %>
+    <%= address_fields.collection_select :state_id, order.ship_address.country.states,
+      :id, :name, {}, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :city, "市町村" %>
+    <%= address_fields.text_field :city, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :address1, "番地" %>
+    <%= address_fields.text_field :address1, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-6 col-xs-12">
+    <%= address_fields.label :phone, "電話番号" %>
+    <%= address_fields.telephone_field :phone, class: "form-control" %>
+  </div>
+  <%= render "submit_button", order: order, order_form: order_form %>
+<% end %>

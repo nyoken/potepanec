@@ -30,12 +30,12 @@ Rails.application.routes.draw do
       end
     end
     resources :categories, only: [:show]
+    resources :orders, only: [:show]
     get 'cart', to: 'orders#edit'
     post 'add_cart', to: 'orders#add_cart'
     patch 'cart', to: 'orders#update'
     resources :line_items, only: [:destroy]
-    get 'checkout', to: 'checkout#edit'
     get 'checkout/:state', to: 'checkout#edit', as: :checkout_state
-    patch 'checkout/update/:state', to: 'checkout#update'
+    patch 'checkout/update/:state', to: 'checkout#update', as: :update_checkout
   end
 end

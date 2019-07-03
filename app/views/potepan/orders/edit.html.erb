@@ -1,6 +1,5 @@
 <div class="main-wrapper">
   <%= render "light_section" %>
-  <!-- MAIN CONTENT SECTION -->
   <section class="mainContent clearfix cartListWrapper">
     <div class="container">
       <div class="row">
@@ -9,7 +8,9 @@
             <% if @order.line_items.empty? %>
               <p>カートは空です。</p>
             <% else %>
-              <%= render 'order_form', order: @order %>
+              <%= form_for @order, url: potepan_cart_path do |order_form| %>
+                <%= render 'order_form', order: @order, order_form: order_form %>
+              <% end %>
             <% end %>
           </div>
         </div>
