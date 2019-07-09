@@ -19,8 +19,8 @@ class Potepan::UserSessionsController < Devise::SessionsController
     else
       respond_to do |format|
         format.html do
-          flash.now[:error] = t('devise.failure.invalid')
-          potepan_root_path
+          flash[:error] = t('devise.failure.invalid')
+          redirect_to potepan_root_path
         end
         format.js do
           render json: { error: t('devise.failure.invalid') },

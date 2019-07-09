@@ -8,14 +8,15 @@ class Potepan::UserRegistrationsController < Devise::RegistrationsController
   def create
     build_resource(spree_user_params)
     if resource.save
-      set_flash_message(:notice, :signed_up)
+      set_flash_message(:success, :signed_up)
       sign_in(:spree_user, resource)
       session[:spree_user_signup] = true
       respond_with resource, location: after_sign_up_path_for(resource)
     else
       clean_up_passwords(resource)
       respond_with(resource) do |format|
-        format.html { potepan_root_path }
+        flash[:error] = t('devise.failure.invalid')
+        format.html { redirect_to potepan_root_path }
       end
     end
   end
