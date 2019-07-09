@@ -36,7 +36,7 @@ class Potepan::OrdersController < ApplicationController
 
     if @order.errors.any?
       flash[:error] = @order.errors.full_messages.join(", ")
-      redirect_back_or_default potepan_path
+      redirect_back_or_default potepan_root_path
       return
     else
       redirect_to potepan_cart_path

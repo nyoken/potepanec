@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Potepan::HomeController, type: :controller do
   describe "#index" do
-    let!(:new_products) { create_list(:product, 10, available_on: 2.day.ago) }
+    let!(:new_products) { create_list(:product, 8, available_on: 2.day.ago) }
     let(:latest_product) { create(:product, available_on: 1.day.ago) }
 
     before { get :index }

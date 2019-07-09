@@ -2,59 +2,18 @@
   <div class="page-header">
     <h4>お支払い方法</h4>
   </div>
-  <% order.available_payment_methods.each do |method| %>
+  <%#= order.available_payment_methods[0].cc_type %>
+  <% order.available_payment_methods.each do |payment_method| %>
     <p>
       <label>
-        <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == order.available_payment_methods.first %>
-        <%= method.name %>
+        <%= radio_button_tag "order[payments_attributes][][payment_method_id]", payment_method.id, payment_method == order.available_payment_methods.first %>
+        <%= payment_method.name %>
       </label>
     </p>
   <% end %>
 </div>
-<div class="form-group col-sm-4 col-xs-12">
-  <label for="checkout-creditcard-code">カード番号</label>
-  <input type="password" class="form-control" id="checkout-card-number">
-</div>
-<div class="form-group col-sm-4 col-xs-12">
-  <label for="">有効期限</label>
-  <div class="row">
-    <div class="col-xs-6">
-      <span class="step-drop">
-        <select name="checkout-card-expiration-month" id="checkout-card-expiration-month" class="select-drop">
-          <option value="1">01</option>
-          <option value="2">02</option>
-          <option value="3">03</option>
-          <option value="4">04</option>
-          <option value="5">05</option>
-          <option value="6">06</option>
-          <option value="7">07</option>
-          <option value="8">08</option>
-          <option value="9">09</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select>
-      </span>
-    </div>
-    <div class="col-xs-6">
-      <span class="step-drop">
-        <select name="checkout-card-expiration-year" id="checkout-card-expiration-year" class="select-drop">
-          <option value="0">2016</option>
-          <option value="1">2017</option>
-          <option value="2">2018</option>
-          <option value="3">2019</option>
-          <option value="4">2020</option>
-          <option value="5">2021</option>
-          <option value="6">2022</option>
-          <option value="7">2023</option>
-          <option value="8">2024</option>
-        </select>
-      </span>
-    </div>
-  </div>
-</div>
-<div class="form-group col-sm-4 col-xs-12">
-  <label for="checkout-card-name">カード名義人</label>
-  <input type="text" class="form-control" id="checkout-card-name">
-</div>
-<%= render "submit_button", order: order, order_form: order_form %>
+<% order.available_payment_methods.each do |payment_method| %>
+  <%= payment_method.name %>
+  <%= render "potepan/checkout/payment/#{payment_method.partial_name}", payment_method: payment_method, order: order %>
+<% end %>
+<%= render "submit_button", order_form: order_form, order: order %>

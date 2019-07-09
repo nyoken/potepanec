@@ -25,7 +25,15 @@
     </div>
     <div class="panel-body">
       <address>
-        <span>Credit Card - VISA</span>
+        <span>
+          <% payment = order.payments.last %>
+          <%= payment.payment_method.name %>
+          <% if payment.payment_method.name == "Credit Card" %>
+            −<%= payment.source.cc_type %> <br>
+            Name: <%= payment.source.name %> <br>
+            Number: <%= payment.source.display_number %>
+          <% end %>
+        </span>
       </address>
     </div>
   </div>
@@ -37,7 +45,7 @@
     </div>
     <div class="panel-body">
       <address>
-        <% order.shipments.each do |shipment| %>
+        <% order.shipments.includes(shipping_rates: [:shipping_method]).each do |shipment| %>
           <span><%= shipment.selected_shipping_rate.name %></span>
         <% end %>
       </address>
@@ -55,12 +63,6 @@
           <address>
             <a href="#"><%= "Email: #{order.email}" %><br></a>
             <span><%= "Phone: #{order.ship_address.phone}" %></span>
-          </address>
-        </div>
-        <div class="col-sm-8 col-xs-12">
-          <address>
-            <span>Additional Information: </span><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
           </address>
         </div>
       </div>

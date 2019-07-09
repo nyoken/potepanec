@@ -12,6 +12,17 @@
         </div>
         <div class="col-md-6 col-xs-12">
           <ul class="list-inline pull-right">
+            <li>
+              <span>
+                <% if spree_current_user %>
+                  <%= link_to "Log out", potepan_logout_path %>
+                <% else %>
+                  <%= link_to "Log in", "", href: "#login", data: { toggle: "modal" } %>
+                  <small>or</small>
+                  <%= link_to "Create an account", "", href: "#signup", data: { toggle: "modal" } %>
+                <% end %>
+              </span>
+            </li>
             <li class="dropdown searchBox">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -57,4 +68,7 @@
       </div>
     </div>
   </nav>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
 </div>

@@ -6,23 +6,23 @@
         <h3 class="modal-title">log in</h3>
       </div>
       <div class="modal-body">
-        <form action="" method="POST" role="form">
+        <%= form_for Spree::User.new, as: :spree_user, url: potepan_create_new_session_path do |f| %>
           <div class="form-group">
-            <label for="login-email">Enter Email</label>
-            <input type="email" class="form-control" id="login-email">
+            <%= f.label :email, "Enter Email" %>
+            <%= f.email_field :email, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" class="form-control" id="login-password">
+            <%= f.label :password, "Password" %>
+            <%= f.password_field :password, class: "form-control", tabindex: 2 %>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> Remember Me
+              <%= f.check_box :remember_me, tabindex: 3 %> Remember Me
             </label>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">log in</button>
+          <%= f.submit "log in", class: "btn btn-primary btn-block" %>
           <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

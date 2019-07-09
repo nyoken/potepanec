@@ -7,8 +7,6 @@ class Potepan::CheckoutController < ApplicationController
 
   before_action :load_order
   before_action :set_state_if_present
-  before_action :associate_user
-  before_action :check_authorization
   before_action :setup_for_current_state, only: [:edit, :update]
 
   # Updates the order and advances to the next state (when possible.)
@@ -94,7 +92,7 @@ class Potepan::CheckoutController < ApplicationController
     false
   end
 
-  # params[:state]がある場合、次のステップへ進む
+  # @orderがない場合、カートページに遷移
   def load_order
     @order = current_order
     redirect_to(potepan_cart_path) && return unless @order
@@ -153,9 +151,5 @@ class Potepan::CheckoutController < ApplicationController
         .map(&:payment_source)
         .select { |ps| ps.is_a?(Spree::CreditCard) }
     end
-  end
-
-  def check_authorization
-    authorize!(:edit, current_order, cookies.signed[:guest_token])
   end
 end
