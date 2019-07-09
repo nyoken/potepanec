@@ -33,25 +33,4 @@ class Potepan::UserSessionsController < Devise::SessionsController
   def destroy
     super
   end
-
-  private
-
-  def accurate_title
-    I18n.t('spree.login')
-  end
-
-  def redirect_back_or_default(default)
-    redirect_to(session["spree_user_return_to"] || default)
-    session["spree_user_return_to"] = nil
-  end
-
-  def success_json
-    {
-      json: {
-        user: spree_current_user,
-        ship_address: spree_current_user.ship_address,
-        bill_address: spree_current_user.bill_address
-      }.to_json
-    }
-  end
 end
