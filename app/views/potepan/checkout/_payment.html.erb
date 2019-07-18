@@ -13,7 +13,6 @@
   <% end %>
 </div>
 <% order.available_payment_methods.each do |payment_method| %>
-  <%= payment_method.name %>
   <%= render "potepan/checkout/payment/#{payment_method.partial_name}", payment_method: payment_method, order: order %>
 <% end %>
 <%= render "submit_button", order_form: order_form, order: order %>
