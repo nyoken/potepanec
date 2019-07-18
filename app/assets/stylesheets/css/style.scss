@@ -4007,6 +4007,44 @@ body.bodyColor.container {
   background-color: #47bac1;
   color: #ffffff;
 }
+.stepsWrapper .innerWrapper .well .pager input {
+  float: right;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  height: 45px;
+  line-height: 45px;
+  background-color: #47bac1;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.stepsWrapper .innerWrapper .well .pager li input:hover {
+  background-color: #47bac1;
+  color: #ffffff;
+}
+.stepsWrapper .innerWrapper .well .pager li input.hideContent {
+  display: none;
+}
+@media (max-width: 479px) {
+  .stepsWrapper .innerWrapper .well .pager li input {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 480px) {
+  .stepsWrapper .innerWrapper .well .pager li input {
+    width: 136px;
+    margin: 0;
+  }
+}
 .stepsWrapper .innerWrapper .orderBox .table-responsive .table tbody tr td {
   text-transform: capitalize;
 }

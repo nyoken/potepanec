@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="page-title">
-          <h2><%= element.name %></h2>
+          <h2><%= order.checkout_title %></h2>
         </div>
       </div>
       <div class="col-xs-6">
@@ -11,10 +11,7 @@
           <li>
             <%= link_to "Home", potepan_root_path %>
           </li>
-          <li>
-            <a href="#">shop</a>
-          </li>
-          <li class="active"><%= element.name %></li>
+          <li class="active"><%= order.checkout_title %></li>
         </ol>
       </div>
     </div>

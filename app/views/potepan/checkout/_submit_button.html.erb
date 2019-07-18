@@ -1,0 +1,10 @@
+<div class="col-xs-12">
+  <div class="well well-lg clearfix">
+    <ul class="pager">
+      <% unless order.address? %>
+        <li class="previous"><%= link_to "戻る", potepan_checkout_state_path(order.previous_checkout_state) %></li>
+      <% end %>
+      <li class="next"><%= order_form.submit order.confirm? ? "購入確定" : "次へ" %></li>
+    </ul>
+  </div>
+</div>

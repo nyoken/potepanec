@@ -6,21 +6,21 @@
         <h3 class="modal-title">Create an account</h3>
       </div>
       <div class="modal-body">
-        <form action="" method="POST" role="form">
+        <%= form_for Spree::User.new, as: :spree_user, url: potepan_registration_path do |f| %>
           <div class="form-group">
-            <label for="signup-email">Enter Email</label>
-            <input type="email" class="form-control" id="signup-email">
+            <%= f.label :email, "Enter Email" %>
+            <%= f.email_field :email, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label for="signup-password">Password</label>
-            <input type="password" class="form-control" id="signup-password">
+            <%= f.label :password, "Password" %>
+            <%= f.password_field :password, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label for="signup-password-confirmation">Confirm Password</label>
-            <input type="password" class="form-control" id="signup-password-confirmation">
+            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Sign up</button>
-        </form>
+          <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
+        <% end %>
       </div>
     </div>
   </div>

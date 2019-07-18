@@ -1,0 +1,21 @@
+<div class="main-wrapper">
+  <!-- LIGHT SECTION -->
+  <%= render "light_section", order: @order %>
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix stepsWrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="innerWrapper clearfix stepsPage">
+            <%= render "progress_wizard_steps", order: @order %>
+            <%= form_for @order, url: potepan_update_checkout_path(@order.state) do |order_form| %>
+              <%= render @order.state, order: @order, order_form: order_form %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<%= render "potepan/shared/login_modal" %>
+<%= render "potepan/shared/signup_modal" %>

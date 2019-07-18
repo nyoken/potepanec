@@ -1,0 +1,77 @@
+<div class="col-xs-12">
+  <div class="page-header">
+    <h4>入力内容確認</h4>
+  </div>
+</div>
+
+<div class="col-sm-12 col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">お届け先情報</h4>
+    </div>
+    <div class="panel-body">
+      <address>
+        <strong><%= order.ship_address.lastname %> <%= order.ship_address.firstname %></strong><br>
+        <%= order.ship_address.zipcode %><br>
+        <%= order.ship_address.state %><%= order.ship_address.city %><%= order.ship_address.address1 %><br>
+      </address>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">お支払い方法</h4>
+    </div>
+    <div class="panel-body">
+      <address>
+        <span>
+          <% payment = order.payments.last %>
+          <%= payment.payment_method.name %>
+          <% if payment.payment_method.name == "Credit Card" %>
+            −<%= payment.source.cc_type %> <br>
+            Name: <%= payment.source.name %> <br>
+            Number: <%= payment.source.display_number %>
+          <% end %>
+        </span>
+      </address>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">お届け方法</h4>
+    </div>
+    <div class="panel-body">
+      <address>
+        <% order.shipments.includes(shipping_rates: [:shipping_method]).each do |shipment| %>
+          <span><%= shipment.selected_shipping_rate.name %></span>
+        <% end %>
+      </address>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">注文詳細</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-4 col-xs-12">
+          <address>
+            <a href="#"><%= "Email: #{order.email}" %><br></a>
+            <span><%= "Phone: #{order.ship_address.phone}" %></span>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12">
+  <div class="cartListInner">
+    <%= render "potepan/orders/order_form", order: order, order_form: order_form %>
+  </div>
+</div>
+<%= render "submit_button", order: order, order_form: order_form %>

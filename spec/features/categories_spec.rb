@@ -74,9 +74,9 @@ RSpec.feature "Categories", type: :feature do
 
   # homeページにアクセスできることを確認
   scenario "User accesses a home page from a categories page" do
-    click_link "Home", href: potepan_path
+    click_link "Home", href: potepan_root_path
 
-    expect(page).to have_current_path potepan_path
+    expect(page).to have_current_path potepan_root_path
   end
 
   # 色フィルターをかけられることを確認
