@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # This line mounts Solidus's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -41,8 +40,8 @@ Rails.application.routes.draw do
     devise_for :spree_users, {
       class_name: 'Spree::User', controllers: {
         sessions: 'potepan/user_sessions',
-        registrations: 'potepan/user_registrations'
-      }
+        registrations: 'potepan/user_registrations',
+      },
     }
     devise_scope :spree_user do
       get '/logout', to: 'user_sessions#destroy', as: :logout

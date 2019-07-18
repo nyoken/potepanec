@@ -1,5 +1,4 @@
 class Potepan::UserSessionsController < Devise::SessionsController
-
   include Spree::Core::ControllerHelpers::Auth
   include Spree::Core::ControllerHelpers::Common
   include Spree::Core::ControllerHelpers::Order
@@ -23,8 +22,7 @@ class Potepan::UserSessionsController < Devise::SessionsController
           redirect_to potepan_root_path
         end
         format.js do
-          render json: { error: t('devise.failure.invalid') },
-            status: :unprocessable_entity
+          render json: { error: t('devise.failure.invalid') }, status: :unprocessable_entity
         end
       end
     end

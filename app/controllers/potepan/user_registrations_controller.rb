@@ -1,5 +1,4 @@
 class Potepan::UserRegistrationsController < Devise::RegistrationsController
-
   include Spree::Core::ControllerHelpers::Auth
   include Spree::Core::ControllerHelpers::Common
   include Spree::Core::ControllerHelpers::Order

@@ -16,7 +16,6 @@ RSpec.feature "cart", type: :feature do
 
   # ユーザー登録をテスト
   scenario "add products to cart then update then destroy" do
-
     visit potepan_product_path(product.id)
 
     # quantity = 1 を選択
@@ -71,7 +70,6 @@ RSpec.feature "cart", type: :feature do
 
   # 現金で購入
   scenario "buy by check" do
-
     visit potepan_product_path(product.id)
 
     # quantity = 1 を選択
@@ -173,7 +171,6 @@ RSpec.feature "cart", type: :feature do
 
   # クレジットカードで購入
   scenario "buy by credit card" do
-
     visit potepan_product_path(product.id)
 
     # quantity = 1 を選択
@@ -223,7 +220,7 @@ RSpec.feature "cart", type: :feature do
     # フォームを埋める
     fill_in "name_on_card_#{credit_card.id}", with: "Johnny Depp"
     fill_in "card_number", with: "1234567898765432"
-    select "03",from: "payment_source_#{credit_card.id}_month"
+    select "03", from: "payment_source_#{credit_card.id}_month"
     select "2025", from: "payment_source_#{credit_card.id}_year"
     fill_in "card_code_#{credit_card.id}", with: "123"
 
