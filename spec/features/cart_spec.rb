@@ -161,6 +161,12 @@ RSpec.feature "cart", type: :feature do
     order.reload
 
     # 支払い情報入力ページに遷移することを確認
+    mail = Spree::OrderMailer.confirm_email(order)
+    expect(mail.subject).to eq("#{order.store.name} Order Confirmation ##{order.number}")
+    expect(mail.to).to eq([order.email])
+    expect(mail.from).to eq([order.store.mail_from_address])
+
+    # 支払い情報入力ページに遷移することを確認
     expect(current_url).to eq potepan_order_url(order.number)
 
     expect(page).to have_content "Your order has been processed successfully"

@@ -65,6 +65,11 @@ Rails.application.configure do
   # add white list ips under Docker
   config.web_console.whitelisted_ips = '0.0.0.0/0'
 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true

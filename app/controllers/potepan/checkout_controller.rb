@@ -50,6 +50,7 @@ class Potepan::CheckoutController < ApplicationController
 
   def finalize_order
     @current_order = nil
+    Spree::OrderMailer.confirm_email(@order).deliver_now
     set_successful_flash_notice
     redirect_to completion_route
   end
