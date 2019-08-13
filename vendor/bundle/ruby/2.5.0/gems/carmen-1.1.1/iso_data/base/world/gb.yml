@@ -1,0 +1,15 @@
+---
+- code: EAW
+  type: nation
+- code: ENG
+  type: country
+- code: GBN
+  type: nation
+- code: NIR
+  type: province
+- code: SCT
+  type: country
+- code: UKM
+  type: nation
+- code: WLS
+  type: country

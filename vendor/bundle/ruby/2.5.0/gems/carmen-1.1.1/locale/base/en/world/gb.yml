@@ -1,0 +1,18 @@
+---
+en:
+  world:
+    gb:
+      eaw:
+        name: England and Wales
+      eng:
+        name: England
+      gbn:
+        name: Great Britain
+      nir:
+        name: Northern Ireland
+      sct:
+        name: Scotland
+      ukm:
+        name: United Kingdom
+      wls:
+        name: Wales; Cymru

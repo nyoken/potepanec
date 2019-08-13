@@ -1,0 +1,18 @@
+# pack-refs with: peeled fully-peeled sorted 
+888d881551c5c76295e6f340eb70a537125cb9b1 refs/heads/depfu/check/solidus_core-2.5.0
+7df24efd61b663b09ce2e146dd8e152107876e81 refs/heads/login_translations
+f23b4d397f9b3ce70053815086c8a9a257c85464 refs/heads/master
+aff7a1107601906ef489f207dfe25e599cd4c6ec refs/heads/normalize_translations
+d2b33c7f27947b518d91fef999bc5c8daf7a37d4 refs/heads/remove-i18n-data-backend
+9f678f7293acc51630efa16be108183bcc5ee93d refs/heads/v1.1
+042754b9cfaca7363e2d0f0acc7e7b3e200deaac refs/heads/v1.3
+7c43cbbbbe59b339c4ecf5cc1493b91a5fa4ab9b refs/tags/v1.0.0
+^44e73539d0b74dc061dbde4d4b2d10c8d9f881eb
+cc396e95017f6cd2fa8eb6e842aa3bf2ca3efe82 refs/tags/v1.1.0
+^9f678f7293acc51630efa16be108183bcc5ee93d
+7b1df709905139529cbbc881828597f7e75bb29a refs/tags/v1.2.0
+^27758baff91c43ca27abf965fb31195bc360e371
+a50090e97bd579a3b1931decdc25d7015897271b refs/tags/v1.3.0
+^042754b9cfaca7363e2d0f0acc7e7b3e200deaac
+e8524cb011282b1819ae74f4c2ffc2d51d6029dc refs/tags/v2.0.0
+^e0fa96236294f759936524541c08c820a4e9243f

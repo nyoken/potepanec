@@ -1,0 +1,17 @@
+---
+- code: CA
+  type: province
+- code: CI
+  type: province
+- code: NU
+  type: province
+- code: OG
+  type: province
+- code: OR
+  type: province
+- code: OT
+  type: province
+- code: SS
+  type: province
+- code: VS
+  type: province

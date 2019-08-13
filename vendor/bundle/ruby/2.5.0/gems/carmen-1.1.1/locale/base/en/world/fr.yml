@@ -1,0 +1,56 @@
+---
+en:
+  world:
+    fr:
+      ara:
+        name: Auvergne-Rhône-Alpes
+      bfc:
+        name: Bourgogne-Franche-Comté
+      bl:
+        name: Saint-Barthélemy
+      bre:
+        name: Bretagne
+      cor:
+        name: Corse
+      cp:
+        name: Clipperton
+      cvl:
+        name: Centre-Val de Loire
+      ges:
+        name: Grand-Est
+      gf:
+        name: Guyane (française)
+      gua:
+        name: Guadeloupe
+      hdf:
+        name: Hauts-de-France
+      idf:
+        name: Île-de-France
+      lre:
+        name: La Réunion
+      may:
+        name: Mayotte
+      mf:
+        name: Saint-Martin
+      mq:
+        name: Martinique
+      naq:
+        name: Nouvelle-Aquitaine
+      nc:
+        name: Nouvelle-Calédonie
+      nor:
+        name: Normandie
+      occ:
+        name: Occitanie
+      pac:
+        name: Provence-Alpes-Côte-d’Azur
+      pdl:
+        name: Pays-de-la-Loire
+      pf:
+        name: Polynésie française
+      pm:
+        name: Saint-Pierre-et-Miquelon
+      tf:
+        name: Terres australes françaises
+      wf:
+        name: Wallis-et-Futuna

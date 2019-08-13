@@ -1,0 +1,15 @@
+---
+en:
+  world:
+    ma:
+      '14':
+        asz:
+          name: Assa-Zag
+        esm:
+          name: Es Smara (EH)
+        gue:
+          name: Guelmim
+        tat:
+          name: Tata
+        tnt:
+          name: Tan-Tan
