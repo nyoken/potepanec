@@ -1,0 +1,17 @@
+---
+en:
+  world:
+    id:
+      jw:
+        bt:
+          name: Banten
+        jb:
+          name: Jawa Barat
+        ji:
+          name: Jawa Timur
+        jk:
+          name: Jakarta Raya
+        jt:
+          name: Jawa Tengah
+        yo:
+          name: Yogyakarta

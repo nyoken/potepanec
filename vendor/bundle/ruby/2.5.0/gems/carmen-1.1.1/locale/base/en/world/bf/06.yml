@@ -1,0 +1,13 @@
+---
+en:
+  world:
+    bf:
+      '06':
+        blk:
+          name: Boulkiemdé
+        sis:
+          name: Sissili
+        sng:
+          name: Sanguié
+        zir:
+          name: Ziro

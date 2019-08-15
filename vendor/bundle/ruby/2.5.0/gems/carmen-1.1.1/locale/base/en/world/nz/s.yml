@@ -1,0 +1,19 @@
+---
+en:
+  world:
+    nz:
+      s:
+        can:
+          name: Canterbury
+        mbh:
+          name: Marlborough District
+        nsn:
+          name: Nelson City
+        ota:
+          name: Otago
+        stl:
+          name: Southland
+        tas:
+          name: Tasman District
+        wtc:
+          name: West Coast

@@ -1,0 +1,11 @@
+---
+- code: ERR
+  type: province
+- code: HAJ
+  type: province
+- code: IFR
+  type: province
+- code: KHN
+  type: province
+- code: MEK
+  type: prefecture

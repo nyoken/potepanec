@@ -1,0 +1,21 @@
+---
+en:
+  world:
+    it:
+      '88':
+        ca:
+          name: Cagliari
+        ci:
+          name: Carbonia-Iglesias
+        nu:
+          name: Nuoro
+        og:
+          name: Ogliastra
+        or:
+          name: Oristano
+        ot:
+          name: Olbia-Tempio
+        ss:
+          name: Sassari
+        vs:
+          name: Medio Campidano
