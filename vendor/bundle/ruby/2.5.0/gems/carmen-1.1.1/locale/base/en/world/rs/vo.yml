@@ -1,0 +1,19 @@
+---
+en:
+  world:
+    rs:
+      vo:
+        '01':
+          name: Severnobački okrug
+        '02':
+          name: Srednjebanatski okrug
+        '03':
+          name: Severnobanatski okrug
+        '04':
+          name: Južnobanatski okrug
+        '05':
+          name: Zapadnobački okrug
+        '06':
+          name: Južnobački okrug
+        '07':
+          name: Sremski okrug

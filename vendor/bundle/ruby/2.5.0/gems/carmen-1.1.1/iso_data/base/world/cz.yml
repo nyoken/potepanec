@@ -1,0 +1,29 @@
+---
+- code: '10'
+  type: capital city
+- code: '20'
+  type: region
+- code: '31'
+  type: region
+- code: '32'
+  type: region
+- code: '41'
+  type: region
+- code: '42'
+  type: region
+- code: '51'
+  type: region
+- code: '52'
+  type: region
+- code: '53'
+  type: region
+- code: '63'
+  type: region
+- code: '64'
+  type: region
+- code: '71'
+  type: region
+- code: '72'
+  type: region
+- code: '80'
+  type: region

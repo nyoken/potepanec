@@ -1,0 +1,15 @@
+---
+en:
+  world:
+    be:
+      vlg:
+        van:
+          name: Antwerpen
+        vbr:
+          name: Vlaams-Brabant
+        vli:
+          name: Limburg
+        vov:
+          name: Oost-Vlaanderen
+        vwv:
+          name: West-Vlaanderen
