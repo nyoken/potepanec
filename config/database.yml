@@ -51,6 +51,6 @@ test:
 #
 production:
   <<: *default
-  database: potepanec_2_7_production
-  username: potepanec
-  password: <%= ENV['POTEPANEC_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
