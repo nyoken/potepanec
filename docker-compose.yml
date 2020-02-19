@@ -26,7 +26,7 @@ services:
       - '36379:6379'
     volumes:
       - redis-data:/var/lib/redis
-  potepanec:
+  potepan-ec:
     build:
       context: .
       dockerfile: Dockerfile.dev
