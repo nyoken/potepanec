@@ -60,7 +60,7 @@ docker-compose up --build
 
 以下のURLを開き、例のような画面が表示されれば正常に動作しています。
 
-http://localhost:3000/potepan/index.html
+http://localhost:4000/potepan/index.html
 
 ![](docs/images/installation/first_view.png)
 
@@ -125,7 +125,7 @@ Dockerを使いこなせるようになりましょう。
 [Dockerを使いこなそう](https://potepan.gitbook.io/camp/be_a_professional_developer/manage_docker)
 
 ### 管理者権限を持ったユーザーの作成
-http://localhost:3000/admin/ にアクセスしデータベース機能を操作する場合、管理者権限を持ったユーザーの作成が必要となります。
+http://localhost:4000/admin/ にアクセスしデータベース機能を操作する場合、管理者権限を持ったユーザーの作成が必要となります。
 
 以下のコマンドを実行し、ご自身のメールアドレスとパスワードを設定し、アカウントを作成してください。
 

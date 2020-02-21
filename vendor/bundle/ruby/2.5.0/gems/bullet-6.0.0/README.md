@@ -320,7 +320,7 @@ bundle exec rails g bullet:install
 $ rails s
 ```
 
-8\. Visit `http://localhost:3000/posts` in browser, and you will see a popup alert box that says
+8\. Visit `http://localhost:4000/posts` in browser, and you will see a popup alert box that says
 
 ```
 The request has unused preload associations as follows:
@@ -365,7 +365,7 @@ def index
 end
 ```
 
-10\. Refresh `http://localhost:3000/posts`. Now there's no alert box and nothing new in the log.
+10\. Refresh `http://localhost:4000/posts`. Now there's no alert box and nothing new in the log.
 
 The generated SQL is:
 
@@ -402,7 +402,7 @@ end
 <% end %>
 ```
 
-12\. Refresh `http://localhost:3000/posts`, and you will see a popup alert box that says
+12\. Refresh `http://localhost:4000/posts`, and you will see a popup alert box that says
 
 ```
 The request has unused preload associations as follows:
@@ -444,7 +444,7 @@ end
 <% end %>
 ```
 
-14\. Refresh `http://localhost:3000/posts`, then you will see a popup alert box that says
+14\. Refresh `http://localhost:4000/posts`, then you will see a popup alert box that says
 
 ```
 Need counter cache

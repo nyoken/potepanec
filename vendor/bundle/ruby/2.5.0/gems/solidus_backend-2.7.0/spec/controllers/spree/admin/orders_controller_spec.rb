@@ -9,7 +9,7 @@ describe Spree::Admin::OrdersController, type: :controller do
     stub_authorization!
 
     before do
-      request.env["HTTP_REFERER"] = "http://localhost:3000"
+      request.env["HTTP_REFERER"] = "http://localhost:4000"
     end
 
     let(:order) do

@@ -118,6 +118,6 @@ bundle exec rails s
 
 以下のURLを開き、例のような画面が表示されれば正常に動作しています。
 
-http://localhost:3000/potepan/index.html
+http://localhost:4000/potepan/index.html
 
 ![](docs/images/installation/first_view.png)

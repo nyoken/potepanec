@@ -335,7 +335,7 @@ Additional origins can be specified using strings or regular expressions, provid
 Rails.application.config.action_cable.allowed_request_origins = ['http://rubyonrails.com', /http:\/\/ruby.*/]
 ```
 
-When running in the development environment, this defaults to "http://localhost:3000".
+When running in the development environment, this defaults to "http://localhost:4000".
 
 To disable protection and allow requests from any origin:
 
