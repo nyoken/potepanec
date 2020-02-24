@@ -54,4 +54,4 @@ services:
       - public_spree_2_7:/potepanec/public/spree
     tty: true
     stdin_open: true
-    command: bundle exec rails server
+    command: bundle exec rails s -p 4000 -b '0.0.0.0'
