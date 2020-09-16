@@ -3,23 +3,23 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title">Create an account</h3>
+        <h3 class="modal-title">アカウント作成</h3>
       </div>
       <div class="modal-body">
         <%= form_for Spree::User.new, as: :spree_user, url: potepan_registration_path do |f| %>
           <div class="form-group">
-            <%= f.label :email, "Enter Email" %>
+            <%= f.label :email, "メールアドレス" %>
             <%= f.email_field :email, class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :password, "Password" %>
+            <%= f.label :password, "パスワード" %>
             <%= f.password_field :password, class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.label :password_confirmation, "パスワード確認" %>
             <%= f.password_field :password_confirmation, class: "form-control" %>
           </div>
-          <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
+          <%= f.submit "新規作成", class: "btn btn-primary btn-block" %>
         <% end %>
       </div>
     </div>

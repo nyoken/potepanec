@@ -4,9 +4,15 @@
     <ul class="list-unstyled clearfix">
       <% option_types.sizes.each do |size| %>
         <li>
-          <%= link_to potepan_category_path(params[:id], size: size.name) do %>
-            <%= size.presentation %><span><%= "(#{count_number_of_products(size.name)})" %></span>
-          <% end %>
+          <% if params[:id] %>
+            <%= link_to potepan_category_path(params[:id], size: size.name) do %>
+              <%= size.presentation %><span><%= "(#{count_number_of_show_products(size.name)})" %></span>
+            <% end %>
+          <% else %>
+            <%= link_to potepan_categories_path(size: size.name) do %>
+              <%= size.presentation %><span><%= "(#{count_number_of_index_products(size.name)})" %></span>
+            <% end %>
+          <% end %>  
         </li>
       <% end %>
     </ul>

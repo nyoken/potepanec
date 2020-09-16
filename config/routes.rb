@@ -29,7 +29,7 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    resources :categories, only: [:show]
+    resources :categories, only: [:index, :show]
     resources :orders, only: [:show]
     get 'cart', to: 'orders#edit'
     post 'add_cart', to: 'orders#add_cart'
