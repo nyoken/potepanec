@@ -1,6 +1,30 @@
 class Potepan::CategoriesController < ApplicationController
   # Viewでcount_number_of_productsメソッドを使えるようにする
-  helper_method :count_number_of_products
+  helper_method :count_number_of_index_products
+  helper_method :count_number_of_show_products
+
+  def index
+    @taxonomies = Spree::Taxonomy.includes(:root)
+
+    @option_types = Spree::OptionType.includes(:option_values)
+
+    @products =
+      if params[:color]
+        Spree::Product.includes(master: [:default_price]).
+          filter_by_option_values(filter_params[:color]).
+          distinct
+      elsif params[:size]
+        Spree::Product.includes(master: [:default_price]).
+          filter_by_option_values(filter_params[:size]).
+          distinct
+      elsif params[:sort]
+        Spree::Product.includes(master: [:default_price]).
+          sort_in_order(filter_params[:sort])
+      else
+        Spree::Product.includes(master: [:default_price]).
+          from_newest_to_oldest
+      end
+  end
 
   def show
     # includesで「N+1問題」を解決
@@ -51,7 +75,13 @@ class Potepan::CategoriesController < ApplicationController
   end
 
   # Color, Sizeなどのoption_valueに応じた商品数を取得するメソッド
-  def count_number_of_products(option_value)
+  def count_number_of_index_products(option_value)
+    Spree::Product.includes(variants: :option_values).
+      where(spree_option_values: { name: option_value }).
+      count
+  end
+
+  def count_number_of_show_products(option_value)
     Spree::Product.includes(variants: :option_values).
       in_taxon(@taxon).
       where(spree_option_values: { name: option_value }).

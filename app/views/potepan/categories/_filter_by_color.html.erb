@@ -4,8 +4,14 @@
     <ul class="list-unstyled">
       <% option_types.colors.each do |color| %>
         <li>
-          <%= link_to potepan_category_path(params[:id], color: color.name) do %>
-            <%= color.presentation %><span><%= "(#{count_number_of_products(color.name)})" %></span>
+          <% if params[:id] %>
+            <%= link_to potepan_category_path(params[:id], color: color.name) do %>
+              <%= color.presentation %><span><%= "(#{count_number_of_show_products(color.name)})" %></span>
+            <% end %>
+          <% else %>
+            <%= link_to potepan_categories_path(color: color.name) do %>
+              <%= color.presentation %><span><%= "(#{count_number_of_index_products(color.name)})" %></span>
+            <% end %>
           <% end %>
         </li>
       <% end %>
