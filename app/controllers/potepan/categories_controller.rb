@@ -1,13 +1,10 @@
 class Potepan::CategoriesController < ApplicationController
+  before_action :set_taxonomies_and_option_types
   # Viewでcount_number_of_productsメソッドを使えるようにする
   helper_method :count_number_of_index_products
   helper_method :count_number_of_show_products
 
   def index
-    @taxonomies = Spree::Taxonomy.includes(:root)
-
-    @option_types = Spree::OptionType.includes(:option_values)
-
     @products =
       if params[:color]
         Spree::Product.includes(master: [:default_price]).
@@ -27,13 +24,7 @@ class Potepan::CategoriesController < ApplicationController
   end
 
   def show
-    # includesで「N+1問題」を解決
-    # SELECT `taxonomies`.* FROM `taxonomies` WHERE `taxonomies`.`root_id` IN (1, 2, 3, ...)
-    @taxonomies = Spree::Taxonomy.includes(:root)
-
     @taxon = Spree::Taxon.find(params[:id])
-
-    @option_types = Spree::OptionType.includes(:option_values)
 
     @products =
       if params[:color] && params[:sort]

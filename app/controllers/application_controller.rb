@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(*)
     potepan_root_path
   end
+
+  def set_taxonomies_and_option_types
+    @taxonomies = Spree::Taxonomy.includes(:root)
+    @option_types = Spree::OptionType.includes(:option_values)
+  end
 end
