@@ -16,11 +16,11 @@
   <!-- MAIN CONTENT SECTION -->
   <section class="mainContent clearfix">
     <div class="container">
-      <%= render "popular_categories", taxons: @taxons %>
+      <%= render "popular_categories", category_taxons: @category_taxons %>
       <%= render "new_products", new_products: @new_products %>
     </div>
   </section>
-  <%= render "potepan/shared/partners" %>
+  <%= render "potepan/shared/partners", brand_taxons: @brand_taxons %>
 </div>
 <%= render "potepan/shared/login_modal" %>
 <%= render "potepan/shared/signup_modal" %>

@@ -1,5 +1,6 @@
 class Potepan::CategoriesController < ApplicationController
   before_action :set_taxonomies_and_option_types
+  before_action :set_brands
   # Viewでcount_number_of_productsメソッドを使えるようにする
   helper_method :count_number_of_index_products
   helper_method :count_number_of_show_products

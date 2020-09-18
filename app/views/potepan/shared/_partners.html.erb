@@ -3,31 +3,18 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="owl-carousel partnersLogoSlider">
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <%= image_tag("img/home/partners/partner-01.png", alt: "partner-img-GUCCI") %>
+          <% brand_taxons.each do |brand_taxon| %>
+            <div class="slide">
+              <div class="partnersLogo clearfix">
+                <%= link_to potepan_category_path(brand_taxon.id) do %>
+                  <%= image_tag("home/partners/#{brand_taxon.name}.png", alt: "brand-image") %>
+                  <div class="brand-name">
+                    <%= brand_taxon.name %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <%= image_tag("img/home/partners/partner-02.png", alt: "partner-img-D&G") %>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <%= image_tag("img/home/partners/partner-03.png", alt: "partner-img-HERMES") %>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <%= image_tag("img/home/partners/partner-04.png", alt: "partner-img-GIORGIO ARMANI") %>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <%= image_tag("img/home/partners/partner-05.png", :alt => "partner-img-CHANEL") %>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

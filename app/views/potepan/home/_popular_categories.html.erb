@@ -4,19 +4,19 @@
       <h4>人気カテゴリー</h4>
     </div>
   </div>
-  <% taxons.each do |taxon| %>
+  <% category_taxons.each do |category_taxon| %>
     <div class="col-sm-4 col-xs-12">
       <div class="thumbnail">
         <div class="imageWrapper">
-          <%= link_to potepan_category_path(taxon.id) do %>
-            <%= image_tag("home/featured-collection/#{taxon.name}.jpg", style: "height: 360px;", alt: "feature-collection-image") %>
+          <%= link_to potepan_category_path(category_taxon.id) do %>
+            <%= image_tag("home/featured-collection/#{category_taxon.name}.jpg", style: "height: 360px;", alt: "feature-collection-image") %>
             <div class="masking">
-              <%= link_to "View #{taxon.name}", potepan_category_path(taxon.id), class: "btn viewBtn" %>
+              <%= link_to "View #{category_taxon.name}", potepan_category_path(category_taxon.id), class: "btn viewBtn" %>
             </div>
           <% end %>
         </div>
         <div class="caption">
-          <h4><%= taxon.name %></h4>
+          <h4><%= category_taxon.name %></h4>
         </div>
       </div>
     </div>

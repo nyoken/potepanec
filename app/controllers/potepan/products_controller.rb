@@ -1,5 +1,6 @@
 class Potepan::ProductsController < ApplicationController
   RELATED_PRODUCTS_LIMIT = 4
+  before_action :set_brands, only: [:search]
 
   def show
     @product = Spree::Product.find(params[:id])

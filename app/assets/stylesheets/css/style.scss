@@ -1670,8 +1670,13 @@ body.bodyColor.container {
   text-align: center !important;
 }
 .lightSection .partnersLogoSlider .slide .partnersLogo img {
-  width: auto;
+  width: 100px;
+  height: 80px;
   margin: 0 auto;
+}
+.lightSection .partnersLogoSlider .slide .partnersLogo .brand-name {
+  font-size: 14px;
+  color: black;
 }
 @media (min-width: 480px) {
   .lightSection .partnersLogoSlider .slide .partnersLogo {
