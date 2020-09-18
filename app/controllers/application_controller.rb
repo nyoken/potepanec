@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
     @taxonomies = Spree::Taxonomy.includes(:root)
     @option_types = Spree::OptionType.includes(:option_values)
   end
+
+  def set_brands
+    @brand_taxons = Spree::Taxon.where(taxonomy_id: 2).where.not(name: :Brand)
+  end
 end

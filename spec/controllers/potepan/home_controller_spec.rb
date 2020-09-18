@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Potepan::HomeController, type: :controller do
   describe "#index" do
-    let!(:categories_taxon) { create(:taxon, name: :Categories, taxonomy_id: 1) }
-    let!(:taxons) { create_list(:taxon, 3, taxonomy_id: 1) }
+    let!(:category_taxon) { create(:taxon, name: :Categories, taxonomy_id: 1) }
+    let!(:category_taxons) { create_list(:taxon, 3, taxonomy_id: 1) }
+    let!(:brand_taxon) { create(:taxon, name: :Brand, taxonomy_id: 2) }
+    let!(:brand_taxons) { create_list(:taxon, 3, taxonomy_id: 2) }
     let!(:new_products) { create_list(:product, 8, available_on: 2.day.ago) }
     let(:latest_product) { create(:product, available_on: 1.day.ago) }
 
@@ -19,11 +21,16 @@ RSpec.describe Potepan::HomeController, type: :controller do
       expect(response).to render_template :index
     end
 
-    # 正しくtaxonsが渡されているか
-    it "have correct @taxons" do
-      taxons.unshift(categories_taxon)
-      # 9つ以上表示されていないか（limit(NEW_PRODUCTS_LIMITが適用されているか）
-      expect(assigns(:taxons)).to match_array taxons[1..3]
+    # 正しくcategory_taxonsが渡されているか
+    it "have correct @category_taxons" do
+      category_taxons.unshift(category_taxon)
+      expect(assigns(:category_taxons)).to match_array category_taxons[1..3]
+    end
+
+    # 正しくbrand_taxonsが渡されているか
+    it "have correct @brand_taxons" do
+      brand_taxons.unshift(brand_taxon)
+      expect(assigns(:brand_taxons)).to match_array brand_taxons[1..-1]
     end
 
     # 正しく@new_productsが渡されているか
