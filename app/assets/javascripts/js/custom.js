@@ -229,3 +229,17 @@ function FormSubmit() {
   	addEvent(window,"resize",footerFixed);
 
   }
+
+//============================== GRID OR LIST =========================
+
+jQuery(function($){
+  $('.grid-or-list-tab').click(function(){
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+    $('.is-show').removeClass('is-show');
+    // クリックしたタブからインデックス番号を取得
+    const index = $(this).index();
+    // クリックしたタブと同じインデックス番号をもつコンテンツを表示
+    $('.grid-or-list').eq(index).addClass('is-show');
+  });
+});
