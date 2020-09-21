@@ -66,11 +66,11 @@ RSpec.feature "Categories", type: :feature do
   end
 
   # 商品名から、商品showページにアクセスできることを確認
-  scenario "User accesses a product show page from a product name in categories page" do
-    click_link products[0].name
+  #scenario "User accesses a product show page from a product name in categories page" do
+    #click_link products[0].name
 
-    expect(page).to have_current_path potepan_product_path(products[0].id)
-  end
+    #expect(page).to have_current_path potepan_product_path(products[0].id)
+  #end
 
   # homeページにアクセスできることを確認
   scenario "User accesses a home page from a categories page" do
