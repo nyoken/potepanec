@@ -1,4 +1,5 @@
-<div class="row">
+<!-- Grid表示 -->
+<section class="row grid-or-list is-show">
   <% products.each do |product| %>
     <div class="col-sm-4 col-xs-12">
       <div class="productBox">
@@ -14,4 +15,22 @@
       </div>
     </div>
   <% end %>
-</div>
+</section>
+<!-- List表示 -->
+<section class="row productListSingle grid-or-list">
+  <% products.each do |product| %>
+    <div class="col-xs-12">
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag(product.display_image.attachment(:large), class: "media-object", alt: "Image") %>
+          <span class="maskingImage"><%= link_to "Quick View", potepan_product_path(product.id), 'data-toggle': :modal, class: "btn viewBtn" %></span>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= product.name %></h4>
+          <p><%= product.description %></p>
+          <h3><%= product.display_price %></h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
