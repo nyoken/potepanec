@@ -57,7 +57,6 @@ class Potepan::CheckoutController < ApplicationController
 
   def set_successful_flash_notice
     flash.notice = t('spree.order_processed_successfully')
-    flash['order_completed'] = true
   end
 
   def send_to_next_state
