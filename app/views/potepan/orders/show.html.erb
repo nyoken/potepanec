@@ -5,20 +5,23 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="thanksContent">
-            <h2>Thank You !! <small>ご注文ありがとうございます。</small></h2>
-            <h3>Shipping Details</h3>
+            <h2>Thank You !! <small>ご注文ありがとうございます。ご入力いただいたメールアドレスに、ご注文の詳細を送信いたしました。</small></h2>
+            <h3>ご注文内容</h3>
             <div class="thanksInner">
               <div class="row">
                 <div class="col-sm-6 col-xs-12 tableBlcok">
                   <address>
-                    <span>Shipping address:</span> <a href="#"><%= @order.email %></a> <br>
-                    <span>Email:</span> <a href="#"><%= @order.email %></a> <br>
-                    <span>Phone:</span> <%= @order.ship_address.phone %>
+                    <span>ご注文の商品：</span><br>
+                    <% @order.line_items.includes(variant: [:product]).each do |line_item| %>
+                      ・<%= line_item.name %>（<%= line_item.quantity %>コ）<br>
+                    <% end %><br>
+                    <span>メールアドレス：</span> <%= @order.email %> <br>
+                    <span>電話番号：</span> <%= @order.ship_address.phone %>
                   </address>
                 </div>
                 <div class="col-sm-6 col-xs-12">
                   <div class="well">
-                    <h2><small>Order ID</small><%= @order.number %></h2>
+                    <h2><small>注文番号</small><%= @order.number %></h2>
                   </div>
                 </div>
               </div>

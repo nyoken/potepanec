@@ -15,7 +15,11 @@
       <%= line_item.display_price %>
     </td>
     <td class="col-xs-2">
-      <%= line_item_fields.number_field :quantity, min: 0 %>
+      <% if params[:state] == "confirm" %>
+        <%= line_item.quantity %>
+      <% else %>
+        <%= line_item_fields.number_field :quantity, min: 0 %>
+      <% end %>
     </td>
     <td class="col-xs-2">
       <%= line_item.display_total %>

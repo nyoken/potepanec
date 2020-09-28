@@ -29,6 +29,7 @@
           <%= order.display_item_total %>
         </span>
       </li>
+      <% if params[:state] == "confirm" %>
       <li>消費税
         <span>
           <%= order.display_additional_tax_total %>
@@ -44,6 +45,7 @@
           <%= order.display_total %>
         </span>
       </li>
+      <% end %>
     </ul>
   </div>
 </div>
