@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <% if @orders.empty? %>
-          <p>カートは空です。</p>
+          <p>購入履歴はございません。</p>
         <% else %>
           <% @orders.each do |order| %>
             <%= render 'order_history', order: order %>
