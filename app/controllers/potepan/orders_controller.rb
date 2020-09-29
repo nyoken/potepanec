@@ -3,6 +3,8 @@ class Potepan::OrdersController < ApplicationController
   include Spree::Core::ControllerHelpers::Auth
   include Spree::Core::ControllerHelpers::Store
 
+  before_action :authenticate_user, only: [:history]
+
   def show
     @order = Spree::Order.find_by(number: params[:id])
   end
@@ -11,6 +13,10 @@ class Potepan::OrdersController < ApplicationController
     # https://github.com/solidusio/solidus/blob/master/frontend/app/controllers/spree/orders_controller.rb
     @order = current_order || Spree::Order.incomplete.
       find_or_initialize_by(guest_token: cookies.signed[:guest_token])
+  end
+
+  def history
+    @orders = Spree::Order.where(state: :complete).where(user: params[:user])
   end
 
   def add_cart

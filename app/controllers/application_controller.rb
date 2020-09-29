@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     potepan_root_path
   end
 
+  def authenticate_user
+    if current_spree_user == nil
+      flash[:error] = t('devise.failure.unauthenticated')
+      redirect_to potepan_root_path
+    end
+  end
+
   def set_taxonomies_and_option_types
     @taxonomies = Spree::Taxonomy.includes(:root)
     @option_types = Spree::OptionType.includes(:option_values)

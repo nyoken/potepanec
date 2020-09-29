@@ -1,0 +1,67 @@
+<div class="col-xs-12">
+  <p>購入日時：<%= order.completed_at.year %>/<%= order.completed_at.month %>/<%= order.completed_at.day %></p>
+  <div class="cartListInner">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>価格</th>
+            <th>数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% order.line_items.includes(variant: [:product]).each do |line_item| %>
+            <tr>
+              <td class="col-xs-2">
+                <span class="cartImage">
+                  <%= image_tag(line_item.variant.display_image.attachment(:small)) %>
+                </span>
+              </td>
+              <td class="col-xs-4">
+                <%= line_item.name %>
+              </td>
+              <td class="col-xs-2">
+                <%= line_item.display_price %>
+              </td>
+              <td class="col-xs-2">
+                <%= line_item.quantity %>
+              </td>
+              <td class="col-xs-2">
+                <%= line_item.display_total %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="totalAmountArea">
+      <div class="col-sm-4 col-sm-offset-8 col-xs-12">
+        <ul class="list-unstyled">
+          <li>小計
+            <span>
+              <%= order.display_item_total %>
+            </span>
+          </li>
+          <li>消費税
+            <span>
+              <%= order.display_additional_tax_total %>
+            </span>
+          </li>
+          <li>送料
+            <span>
+              <%= order.display_ship_total.to_html %>
+            </span>
+          </li>
+          <li>総計
+            <span class="grandTotal">
+              <%= order.display_total %>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

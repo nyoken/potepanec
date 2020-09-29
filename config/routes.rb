@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :show]
     resources :orders, only: [:show]
     get 'cart', to: 'orders#edit'
+    get 'history/:user', to: 'orders#history', as: :user_history
     post 'add_cart', to: 'orders#add_cart'
     patch 'cart', to: 'orders#update'
     resources :line_items, only: [:destroy]

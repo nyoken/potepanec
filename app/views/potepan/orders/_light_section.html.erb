@@ -4,13 +4,23 @@
       <div class="row tableInner">
         <div class="col-xs-12">
           <div class="page-title">
-            <h2>cart</h2>
-            <ol class="breadcrumb">
-              <li>
-                <%= link_to "Home", potepan_root_path %>
-              </li>
-              <li class="active">cart</li>
-            </ol>
+            <% if controller.action_name == "history" %>
+              <h2>order history</h2>
+              <ol class="breadcrumb">
+                <li>
+                  <%= link_to "Home", potepan_root_path %>
+                </li>
+                <li class="active">order history</li>
+              </ol>
+            <% else %>
+              <h2>cart</h2>
+              <ol class="breadcrumb">
+                <li>
+                  <%= link_to "Home", potepan_root_path %>
+                </li>
+                <li class="active">cart</li>
+              </ol>
+            <% end %>
           </div>
         </div>
       </div>

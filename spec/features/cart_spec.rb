@@ -13,8 +13,9 @@ RSpec.feature "cart", type: :feature do
   let!(:zone) { create(:zone) }
   let!(:check) { create(:check_payment_method) }
   let!(:credit_card) { create(:credit_card_payment_method) }
+  let!(:user) { create(:user) }
 
-  # ユーザー登録をテスト
+  # 商品をカートに入れて削除する
   scenario "add products to cart then update then destroy" do
     visit potepan_product_path(product.id)
 
@@ -68,8 +69,42 @@ RSpec.feature "cart", type: :feature do
     expect(page).to have_content "カートは空です。"
   end
 
+  # ログインせずに購入ボタンを押した際、トップページにリダイレクトされる
+  scenario "redirect to root page when a not logged in user trys to purchase products" do
+    visit potepan_product_path(product.id)
+
+    # quantity = 1 を選択
+    select "1", from: "quantity"
+
+    # カートに入れる をクリック
+    click_on "カートに入れる"
+
+    # カートページに遷移したことを確認
+    expect(current_url).to eq potepan_cart_url
+
+    # 追加したorderを取得
+    order = Spree::Order.last
+
+    # カートに追加した商品を取得
+    line_item = order.line_items.first
+
+    # 購入する をクリック
+    click_on "購入する"
+
+    # アドレス入力ページに遷移することを確認
+    expect(current_url).to eq potepan_root_url
+  end
+
   # 現金で購入
   scenario "buy by check" do
+    # ログイン
+    visit potepan_root_path
+    click_on "ログイン", match: :first
+    fill_in "メールアドレス", with: user.email, match: :first
+    fill_in "パスワード", with: user.password, match: :first
+    click_button "ログイン"
+    expect(page).to have_content "Logged in successfully"
+
     visit potepan_product_path(product.id)
 
     # quantity = 1 を選択
@@ -108,9 +143,9 @@ RSpec.feature "cart", type: :feature do
     expect(current_url).to eq potepan_update_checkout_url("address")
 
     # フォームを埋める
-    fill_in "order_ship_address_attributes_lastname", with: "Depp"
-    fill_in "order_ship_address_attributes_firstname", with: "Johnny"
-    fill_in "order_email", with: "test@example.com"
+    fill_in "order_ship_address_attributes_lastname", with: "Test"
+    fill_in "order_ship_address_attributes_firstname", with: "Taro"
+    fill_in "order_email", with: user.email
     fill_in "order_ship_address_attributes_zipcode", with: "123-4567"
     select state, from: "order_ship_address_attributes_state_id"
     fill_in "order_ship_address_attributes_city", with: "LA"
@@ -177,6 +212,14 @@ RSpec.feature "cart", type: :feature do
 
   # クレジットカードで購入
   scenario "buy by credit card" do
+    # ログイン
+    visit potepan_root_path
+    click_on "ログイン", match: :first
+    fill_in "メールアドレス", with: user.email, match: :first
+    fill_in "パスワード", with: user.password, match: :first
+    click_button "ログイン"
+    expect(page).to have_content "Logged in successfully"
+
     visit potepan_product_path(product.id)
 
     # quantity = 1 を選択
@@ -201,9 +244,9 @@ RSpec.feature "cart", type: :feature do
     expect(current_url).to eq potepan_checkout_state_url("address")
 
     # フォームを埋める
-    fill_in "order_ship_address_attributes_lastname", with: "Depp"
-    fill_in "order_ship_address_attributes_firstname", with: "Johnny"
-    fill_in "order_email", with: "test@example.com"
+    fill_in "order_ship_address_attributes_lastname", with: "テスト"
+    fill_in "order_ship_address_attributes_firstname", with: "太郎"
+    fill_in "order_email", with: user.email
     fill_in "order_ship_address_attributes_zipcode", with: "123-4567"
     select state, from: "order_ship_address_attributes_state_id"
     fill_in "order_ship_address_attributes_city", with: "LA"
@@ -251,5 +294,20 @@ RSpec.feature "cart", type: :feature do
     expect(page).to have_content "ご注文ありがとうございます。"
     expect(page).to have_content order.email
     expect(page).to have_content order.number
+
+    # 購入履歴をクリック
+    click_on "購入履歴"
+
+    # 購入履歴ページに遷移することを確認
+    expect(current_url).to eq potepan_user_history_url(user)
+
+    expect(page).to have_content line_item.name
+    expect(page).to have_content line_item.display_price
+    expect(page).to have_content line_item.quantity
+    expect(page).to have_content line_item.display_total
+    expect(page).to have_content order.display_item_total
+    expect(page).to have_content order.display_additional_tax_total
+    expect(page).to have_content order.display_ship_total.to_html
+    expect(page).to have_content order.display_total
   end
 end
