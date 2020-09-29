@@ -8,6 +8,7 @@ class Potepan::CheckoutController < ApplicationController
   before_action :load_order
   before_action :set_state_if_present
   before_action :setup_for_current_state, only: [:edit, :update]
+  before_action :authenticate_user
 
   # Updates the order and advances to the next state (when possible.)
   def update

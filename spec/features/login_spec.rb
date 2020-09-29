@@ -9,7 +9,7 @@ RSpec.feature "login", type: :feature do
     visit potepan_root_path
 
     # アカウント作成をクリック
-    click_on "アカウント作成"
+    click_on "新規アカウント作成"
 
     # パスワードミス
     within("div#signup") do
@@ -22,7 +22,7 @@ RSpec.feature "login", type: :feature do
     expect(current_url).to eq potepan_root_url
 
     # アカウント作成をクリック
-    click_on "アカウント作成"
+    click_on "新規アカウント作成"
 
     # パスワードOK
     within("div#signup") do
