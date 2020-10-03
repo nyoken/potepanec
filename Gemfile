@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rails-erd'
   gem 'annotate'
   gem 'rails-erd'
+  gem 'letter_opener_web'
 end
 
 group :development do

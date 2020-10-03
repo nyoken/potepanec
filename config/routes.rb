@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Solidus relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/'
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
+
   namespace :potepan do
     get root                        to: 'home#index'
     get 'index',                    to: 'sample#index'
