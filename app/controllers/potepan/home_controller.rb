@@ -5,6 +5,7 @@ class Potepan::HomeController < ApplicationController
   before_action :set_brands
 
   def index
+    @edit_password_reset_url = potepan_reset_password_edit_path(reset_password_token: "token")
     @category_taxons = Spree::Taxon.where(taxonomy_id: 1).
       where.not(name: :Categories).limit(POPULAR_CATEGORIES_LIMIT)
     # new_products scopeは、app/models/spree/product_decoratorにて定義
