@@ -39,6 +39,7 @@
 #login .modal-dialog .modal-content .modal-body .btn-primary,
 #signup .modal-dialog .modal-content .modal-body .btn-primary,
 #reset_password .modal-dialog .modal-content .modal-body .btn-primary,
+#edit-reset-password .modal-dialog .modal-content .modal-body .btn-primary,
 .form-body .panel .panel-heading,
 .signUp .panel .panel-heading,
 .lostPassword .panel .panel-heading,
@@ -49,6 +50,7 @@
 #login .modal-dialog .modal-content .modal-header,
 #signup .modal-dialog .modal-content .modal-header,
 #reset_password .modal-dialog .modal-content .modal-header,
+#edit-reset-password .modal-dialog .modal-content .modal-header,
 .sideBar .panel .panel-heading,
 .filterArea .btn-group .btn-default:hover,
 .filterArea .btn-group .btn-default.active,
@@ -111,6 +113,7 @@
 #login .modal-dialog .modal-content .modal-body .btn-link,
 #signup .modal-dialog .modal-content .modal-body .btn-link,
 #reset_password .modal-dialog .modal-content .modal-body .btn-link,
+#edit-reset-password .modal-dialog .modal-content .modal-body .btn-link,
 .stepsPage form .checkboxArea input[type=checkbox]:not(old):checked + label span,
 .sub-list-item:hover,
 .navbar-side-collapse .side-nav li .collapseItem li a:hover,
@@ -186,6 +189,7 @@
 .commentsForm .btn-link:hover,
 #login .modal-dialog .modal-content .modal-body .btn-link:hover,
 #signup .modal-dialog .modal-content .modal-body .btn-link:hover,
-#reset_password .modal-dialog .modal-content .modal-body .btn-link:hover {
+#reset_password .modal-dialog .modal-content .modal-body .btn-link:hover,
+#edit-reset-password .modal-dialog .modal-content .modal-body .btn-link:hover {
   color: #4dc8cf;
 }
