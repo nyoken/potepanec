@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Solidus relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/'
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
+
   namespace :potepan do
     get root                        to: 'home#index'
     get 'index',                    to: 'sample#index'
@@ -38,16 +42,14 @@ Rails.application.routes.draw do
     resources :line_items, only: [:destroy]
     get 'checkout/:state', to: 'checkout#edit', as: :checkout_state
     patch 'checkout/update/:state', to: 'checkout#update', as: :update_checkout
-    devise_for :spree_users, {
-      class_name: 'Spree::User', controllers: {
-        sessions: 'potepan/user_sessions',
-        registrations: 'potepan/user_registrations',
-      },
-    }
+
     devise_scope :spree_user do
       get '/logout', to: 'user_sessions#destroy', as: :logout
       post '/login', to: 'user_sessions#create', as: :create_new_session
       post '/signup', to: 'user_registrations#create', as: :registration
+      get '/reset_password/edit', to: 'user_passwords#edit'
+      post '/reset_password', to: 'user_passwords#create'
+      put '/reset_password', to: 'user_passwords#update'
     end
   end
 end

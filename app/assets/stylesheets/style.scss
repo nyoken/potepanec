@@ -1707,33 +1707,47 @@ body.bodyColor.container {
 }
 /*=== 3. FORM ===*/
 /*=== 3.1 FORM COMMON ===*/
-.form-field .form-group .form-control, .form-body .panel .panel-body .form-group .form-control, .signUp .panel .panel-body .form-group .form-control, .lostPassword .panel .panel-body .form-group .form-control, .logIn .panel .panel-body .form-group .form-control, .commentsForm .form-group .form-control, #login .modal-dialog .modal-content .modal-body .form-group .form-control, #signup .modal-dialog .modal-content .modal-body .form-group .form-control, .stepsPage form .form-group .form-control, .profile .form-horizontal .form-group .form-control {
+#login .modal-dialog .modal-content .modal-body p {
+  font-size: 14px;
+  margin: 14px 0 0;
+}
+
+#reset-password .modal-dialog .modal-content .modal-body {
+  height: 400px;
+}
+
+#reset-password .modal-dialog .modal-content .modal-body p {
+  font-size: 14px;
+  margin: 30px 0;
+}
+
+.form-field .form-group .form-control, .form-body .panel .panel-body .form-group .form-control, .signUp .panel .panel-body .form-group .form-control, .lostPassword .panel .panel-body .form-group .form-control, .logIn .panel .panel-body .form-group .form-control, .commentsForm .form-group .form-control, #login .modal-dialog .modal-content .modal-body .form-group .form-control, #signup .modal-dialog .modal-content .modal-body .form-group .form-control, .stepsPage form .form-group .form-control, #reset-password .modal-dialog .modal-content .modal-body .form-group .form-control, #edit-reset-password .modal-dialog .modal-content .modal-body .form-group .form-control, .stepsPage form .form-group .form-control, .profile .form-horizontal .form-group .form-control {
   border-radius: 0;
   background-color: #f0f0f0;
   border: none;
   height: 50px;
   box-shadow: none;
 }
-.form-field .form-group .form-control:focus, .form-body .panel .panel-body .form-group .form-control:focus, .signUp .panel .panel-body .form-group .form-control:focus, .lostPassword .panel .panel-body .form-group .form-control:focus, .logIn .panel .panel-body .form-group .form-control:focus, .commentsForm .form-group .form-control:focus, #login .modal-dialog .modal-content .modal-body .form-group .form-control:focus, #signup .modal-dialog .modal-content .modal-body .form-group .form-control:focus, .stepsPage form .form-group .form-control:focus, .profile .form-horizontal .form-group .form-control:focus {
+.form-field .form-group .form-control:focus, .form-body .panel .panel-body .form-group .form-control:focus, .signUp .panel .panel-body .form-group .form-control:focus, .lostPassword .panel .panel-body .form-group .form-control:focus, .logIn .panel .panel-body .form-group .form-control:focus, .commentsForm .form-group .form-control:focus, #login .modal-dialog .modal-content .modal-body .form-group .form-control:focus, #signup .modal-dialog .modal-content .modal-body .form-group .form-control:focus, #reset-password .modal-dialog .modal-content .modal-body .form-group .form-control:focus, #edit-reset-password .modal-dialog .modal-content .modal-body .form-group .form-control:focus, .stepsPage form .form-group .form-control:focus, .profile .form-horizontal .form-group .form-control:focus {
   box-shadow: none;
 }
 
-.form-field, .form-body .panel .panel-body, .signUp .panel .panel-body, .lostPassword .panel .panel-body, .logIn .panel .panel-body, .commentsForm, #login .modal-dialog .modal-content .modal-body, #signup .modal-dialog .modal-content .modal-body {
+.form-field, .form-body .panel .panel-body, .signUp .panel .panel-body, .lostPassword .panel .panel-body, .logIn .panel .panel-body, .commentsForm, #login .modal-dialog .modal-content .modal-body, #signup .modal-dialog .modal-content .modal-body, #reset-password .modal-dialog .modal-content .modal-body, #edit-reset-password .modal-dialog .modal-content .modal-body {
   padding: 15px 30px;
 }
-.form-field .form-group, .form-body .panel .panel-body .form-group, .signUp .panel .panel-body .form-group, .lostPassword .panel .panel-body .form-group, .logIn .panel .panel-body .form-group, .commentsForm .form-group, #login .modal-dialog .modal-content .modal-body .form-group, #signup .modal-dialog .modal-content .modal-body .form-group {
+.form-field .form-group, .form-body .panel .panel-body .form-group, .signUp .panel .panel-body .form-group, .lostPassword .panel .panel-body .form-group, .logIn .panel .panel-body .form-group, .commentsForm .form-group, #login .modal-dialog .modal-content .modal-body .form-group, #signup .modal-dialog .modal-content .modal-body .form-group, #reset-password .modal-dialog .modal-content .modal-body .form-group, #edit-reset-password .modal-dialog .modal-content .modal-body .form-group {
   margin-bottom: 30px;
 }
-.form-field .form-group label, .form-body .panel .panel-body .form-group label, .signUp .panel .panel-body .form-group label, .lostPassword .panel .panel-body .form-group label, .logIn .panel .panel-body .form-group label, .commentsForm .form-group label, #login .modal-dialog .modal-content .modal-body .form-group label, #signup .modal-dialog .modal-content .modal-body .form-group label {
+.form-field .form-group label, .form-body .panel .panel-body .form-group label, .signUp .panel .panel-body .form-group label, .lostPassword .panel .panel-body .form-group label, .logIn .panel .panel-body .form-group label, .commentsForm .form-group label, #login .modal-dialog .modal-content .modal-body .form-group label, #signup .modal-dialog .modal-content .modal-body .form-group label, #reset-password .modal-dialog .modal-content .modal-body .form-group label, #edit-reset-password .modal-dialog .modal-content .modal-body .form-group label {
   font-size: 13px;
 }
-.form-field .checkbox, .form-body .panel .panel-body .checkbox, .signUp .panel .panel-body .checkbox, .lostPassword .panel .panel-body .checkbox, .logIn .panel .panel-body .checkbox, .commentsForm .checkbox, #login .modal-dialog .modal-content .modal-body .checkbox, #signup .modal-dialog .modal-content .modal-body .checkbox {
+.form-field .checkbox, .form-body .panel .panel-body .checkbox, .signUp .panel .panel-body .checkbox, .lostPassword .panel .panel-body .checkbox, .logIn .panel .panel-body .checkbox, .commentsForm .checkbox, #login .modal-dialog .modal-content .modal-body .checkbox, #signup .modal-dialog .modal-content .modal-body .checkbox, #reset-password .modal-dialog .modal-content .modal-body .checkbox, #edit-reset-password .modal-dialog .modal-content .modal-body .checkbox {
   margin: 0 0 30px 0;
 }
-.form-field .checkbox label, .form-body .panel .panel-body .checkbox label, .signUp .panel .panel-body .checkbox label, .lostPassword .panel .panel-body .checkbox label, .logIn .panel .panel-body .checkbox label, .commentsForm .checkbox label, #login .modal-dialog .modal-content .modal-body .checkbox label, #signup .modal-dialog .modal-content .modal-body .checkbox label {
+.form-field .checkbox label, .form-body .panel .panel-body .checkbox label, .signUp .panel .panel-body .checkbox label, .lostPassword .panel .panel-body .checkbox label, .logIn .panel .panel-body .checkbox label, .commentsForm .checkbox label, #login .modal-dialog .modal-content .modal-body .checkbox label, #signup .modal-dialog .modal-content .modal-body .checkbox label, #reset-password .modal-dialog .modal-content .modal-body .checkbox label, #edit-reset-password .modal-dialog .modal-content .modal-body .checkbox label {
   font-size: 13px;
 }
-.form-field .btn-primary, .form-body .panel .panel-body .btn-primary, .signUp .panel .panel-body .btn-primary, .lostPassword .panel .panel-body .btn-primary, .logIn .panel .panel-body .btn-primary, .commentsForm .btn-primary, #login .modal-dialog .modal-content .modal-body .btn-primary, #signup .modal-dialog .modal-content .modal-body .btn-primary {
+.form-field .btn-primary, .form-body .panel .panel-body .btn-primary, .signUp .panel .panel-body .btn-primary, .lostPassword .panel .panel-body .btn-primary, .logIn .panel .panel-body .btn-primary, .commentsForm .btn-primary, #login .modal-dialog .modal-content .modal-body .btn-primary, #signup .modal-dialog .modal-content .modal-body .btn-primary, #reset-password .modal-dialog .modal-content .modal-body .btn-primary, #edit-reset-password .modal-dialog .modal-content .modal-body .btn-primary {
   border-radius: 0;
   background-color: #47bac1;
   border: none;
@@ -1749,10 +1763,10 @@ body.bodyColor.container {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.form-field .btn-primary:hover, .form-body .panel .panel-body .btn-primary:hover, .signUp .panel .panel-body .btn-primary:hover, .lostPassword .panel .panel-body .btn-primary:hover, .logIn .panel .panel-body .btn-primary:hover, .commentsForm .btn-primary:hover, #login .modal-dialog .modal-content .modal-body .btn-primary:hover, #signup .modal-dialog .modal-content .modal-body .btn-primary:hover {
+.form-field .btn-primary:hover, .form-body .panel .panel-body .btn-primary:hover, .signUp .panel .panel-body .btn-primary:hover, .lostPassword .panel .panel-body .btn-primary:hover, .logIn .panel .panel-body .btn-primary:hover, .commentsForm .btn-primary:hover, #login .modal-dialog .modal-content .modal-body .btn-primary:hover, #signup .modal-dialog .modal-content .modal-body .btn-primary:hover, #edit-reset-password .modal-dialog .modal-content .modal-body .btn-primary:hover, #reset-password .modal-dialog .modal-content .modal-body .btn-primary:hover {
   opacity: .9;
 }
-.form-field .btn-link, .form-body .panel .panel-body .btn-link, .signUp .panel .panel-body .btn-link, .lostPassword .panel .panel-body .btn-link, .logIn .panel .panel-body .btn-link, .commentsForm .btn-link, #login .modal-dialog .modal-content .modal-body .btn-link, #signup .modal-dialog .modal-content .modal-body .btn-link {
+.form-field .btn-link, .form-body .panel .panel-body .btn-link, .signUp .panel .panel-body .btn-link, .lostPassword .panel .panel-body .btn-link, .logIn .panel .panel-body .btn-link, .commentsForm .btn-link, #login .modal-dialog .modal-content .modal-body .btn-link, #signup .modal-dialog .modal-content .modal-body .btn-link, #reset-password .modal-dialog .modal-content .modal-body .btn-link,  #edit-reset-password .modal-dialog .modal-content .modal-body .btn-link {
   color: #47bac1;
   text-transform: capitalize;
   -webkit-transition: all 0.3s ease-in-out;
@@ -1761,7 +1775,7 @@ body.bodyColor.container {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.form-field .btn-link:hover, .form-body .panel .panel-body .btn-link:hover, .signUp .panel .panel-body .btn-link:hover, .lostPassword .panel .panel-body .btn-link:hover, .logIn .panel .panel-body .btn-link:hover, .commentsForm .btn-link:hover, #login .modal-dialog .modal-content .modal-body .btn-link:hover, #signup .modal-dialog .modal-content .modal-body .btn-link:hover {
+.form-field .btn-link:hover, .form-body .panel .panel-body .btn-link:hover, .signUp .panel .panel-body .btn-link:hover, .lostPassword .panel .panel-body .btn-link:hover, .logIn .panel .panel-body .btn-link:hover, .commentsForm .btn-link:hover, #login .modal-dialog .modal-content .modal-body .btn-link:hover, #signup .modal-dialog .modal-content .modal-body .btn-link:hover, #reset-password .modal-dialog .modal-content .modal-body .btn-link:hover, #edit-reset-password .modal-dialog .modal-content .modal-body .btn-link:hover {
   text-decoration: none;
   color: #4dc8cf;
 }
@@ -1985,7 +1999,7 @@ body.bodyColor.container {
 
 /*=== 4. MODAL ===*/
 /*=== 4.1 LOGIN MODAL ===*/
-#login .modal-dialog .modal-content, #signup .modal-dialog .modal-content, .quick-view .modal-dialog .modal-content {
+#login .modal-dialog .modal-content, #signup .modal-dialog .modal-content, #reset-password .modal-dialog .modal-content, .quick-view .modal-dialog .modal-content, #edit-reset-password .modal-dialog .modal-content, .quick-view .modal-dialog .modal-content {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -2044,32 +2058,32 @@ body.bodyColor.container {
   opacity: .8;
 }
 
-#login .modal-dialog, #signup .modal-dialog {
+#login .modal-dialog, #signup .modal-dialog, #reset-password .modal-dialog, #edit-reset-password .modal-dialog {
   margin: 10px auto 0 auto;
 }
-#login .modal-dialog .modal-content .modal-header, #signup .modal-dialog .modal-content .modal-header {
+#login .modal-dialog .modal-content .modal-header, #signup .modal-dialog .modal-content .modal-header, #reset-password .modal-dialog .modal-content .modal-header, #edit-reset-password .modal-dialog .modal-content .modal-header {
   background-color: #47bac1;
 }
-#login .modal-dialog .modal-content .modal-header .modal-title, #signup .modal-dialog .modal-content .modal-header .modal-title {
+#login .modal-dialog .modal-content .modal-header .modal-title, #signup .modal-dialog .modal-content .modal-header .modal-title, #reset-password .modal-dialog .modal-content .modal-header .modal-title, #edit-reset-password .modal-dialog .modal-content .modal-header .modal-title {
   text-align: center;
   color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
 }
-#login .modal-dialog .modal-content .modal-header .close, #signup .modal-dialog .modal-content .modal-header .close {
+#login .modal-dialog .modal-content .modal-header .close, #signup .modal-dialog .modal-content .modal-header .close, #reset-password .modal-dialog .modal-content .modal-header .close, #edit-reset-password .modal-dialog .modal-content .modal-header .close {
   opacity: 1;
   color: #ffffff;
 }
-#login .modal-dialog .modal-content .modal-header .close:hover, #signup .modal-dialog .modal-content .modal-header .close:hover, #login .modal-dialog .modal-content .modal-header .close:focus, #signup .modal-dialog .modal-content .modal-header .close:focus {
+#login .modal-dialog .modal-content .modal-header .close:hover, #signup .modal-dialog .modal-content .modal-header .close:hover, #reset-password .modal-dialog .modal-content .modal-header .close:hover, #edit-reset-password .modal-dialog .modal-content .modal-header .close:hover, #login .modal-dialog .modal-content .modal-header .close:focus, #signup .modal-dialog .modal-content .modal-header .close:focus, #reset-password .modal-dialog .modal-content .modal-header .close:focus, #edit-reset-password .modal-dialog .modal-content .modal-header .close:focus {
   opacity: .6;
 }
 @media (max-width: 479px) {
-  #login .modal-dialog, #signup .modal-dialog {
+  #login .modal-dialog, #signup .modal-dialog, #reset-password .modal-dialog, #edit-reset-password .modal-dialog {
     width: 270px;
   }
 }
 @media (min-width: 480px) {
-  #login .modal-dialog, #signup .modal-dialog {
+  #login .modal-dialog, #signup .modal-dialog, #reset-password .modal-dialog, #edit-reset-password .modal-dialog {
     width: 430px;
   }
 }
