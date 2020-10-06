@@ -2,7 +2,7 @@ Spree::UserMailer.class_eval do
   def reset_password_instructions(user, token, *_args)
     @store = Spree::Store.default
     if Rails.env.production?
-      host = "https://sample-store-solidus.herokuapp.com/potepan"
+      host = "https://sample-store-solidus.herokuapp.com"
     elsif Rails.env.development?
       host = "http://localhost:4000"
     else
