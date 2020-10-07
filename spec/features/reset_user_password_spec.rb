@@ -7,7 +7,7 @@ RSpec.feature "ResetUserPassword", type: :feature do
 
   def extract_confirmation_url(mail)
     body = mail.body.encoded
-    body[/http[^"]+(?=If\sthe)/]
+    body[/http[^"]+(?=もし)/]
   end
 
   let!(:store) { create(:store, mail_from_address: "store@example.com") }
