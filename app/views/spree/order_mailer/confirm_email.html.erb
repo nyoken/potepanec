@@ -1,15 +1,9 @@
 <table>
   <tr>
     <td>
-      <p class="lede">
-        <%= t('.dear_customer') %>
-      </p>
-      <p>
-        <%= t('.instructions') %>
-      </p>
-      <p>
-        <%= t('.order_summary') %>
-      </p>
+      <p class="lede">ご購入ありがとうございます！</p>
+      <p>ご注文内容の詳細を以下に記載いたします。</p>
+      <p>ご注文内容</p>
       <table>
         <% @order.line_items.each do |item| %>
           <tr>
@@ -18,13 +12,13 @@
               <%= item.variant.product.name %>
               <%= item.variant.options_text -%>
             </td>
-            <td>(<%=item.quantity%>) @ <%= item.single_money %> = <%= item.display_amount %></td>
+            <td>(<%=item.quantity%>コ) @ <%= item.single_money %> = <%= item.display_amount %></td>
           </tr>
         <% end %>
         <tr>
           <td></td>
           <td>
-            <%= t('.subtotal') %>
+            小計
           </td>
           <td>
             <%= @order.display_item_total %>
@@ -44,7 +38,7 @@
         <% @order.shipments.group_by { |s| s.selected_shipping_rate.try(:name) }.each do |name, shipments| %>
           <tr>
             <td></td>
-            <td><%= t('spree.shipping') %> <%= name %>:</td>
+            <td>送料:</td>
             <td><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: @order.currency) %></td>
           </tr>
         <% end %>
@@ -52,7 +46,7 @@
           <% @order.all_adjustments.eligible.tax.group_by(&:label).each do |label, adjustments| %>
             <tr>
               <td></td>
-              <td><%= t('spree.tax') %> <%= label %>:</td>
+              <td>消費税:</td>
               <td><%= Spree::Money.new(adjustments.sum(&:amount), currency: @order.currency) %></td>
             </tr>
           <% end %>
@@ -68,16 +62,14 @@
         <tr>
           <td></td>
           <td>
-            <%= t('.total') %>
+            合計金額
           </td>
           <td>
             <%= @order.display_total %>
           </td>
         </tr>
       </table>
-      <p>
-        <%= t('.thanks') %>
-      </p>
+      <p>ご購入いただき、ありがとうございました。</p>
     </td>
     <td class="expander"></td>
   </tr>
